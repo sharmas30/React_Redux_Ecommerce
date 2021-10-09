@@ -1,0 +1,258 @@
+.productCard {
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 1rem;
+    text-align: center;
+    width: 75%;
+  }
+
+  .productImage img{
+    width: 400px;
+    height: 500px;
+    border-radius: 5px;
+  }
+
+  .productCard .productImageSample{
+    margin-left: 10px;
+    width: 60%;
+    height: 10px;
+  }
+
+  .productImageSample {
+    margin: 12px auto;
+    display: grid;
+    grid-gap: 1rem;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .productImageSample img{
+    width: 100px;
+    height: 120px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .productImageSample div{
+    margin: 10px auto;
+  }
+
+  .productCalculation{
+    width: 400px
+  }
+
+  .productName{
+    font-size: 21px;
+    margin-top: 20px;
+    text-align: left;
+    padding: 3px 1px;
+  }
+
+  .productBrand{
+    font-size: 16px;
+    text-align: left;
+    padding: 7px 1px;
+  }
+
+  .productPrice{
+    font-size: 22px;
+    text-align: left;
+    padding: 2px 1px;
+  }
+
+  .productSizeTitle{
+    font-size: 15px;
+    text-align: left;
+    padding: 5px 1px;
+  }
+
+  .productAddCartBtn button{
+    background-color: rgb(245, 109, 19);
+    font-weight: bold;
+    color: white;
+    width: 200px;
+    padding: 8px;
+    border: 0px solid black;
+    border-radius: 5px;
+    margin: 30px auto;
+    box-shadow: 3px 2px 3px gray;
+
+  }
+
+  .productDescription{
+    margin: 100px auto;
+    display: grid;
+    grid-gap: 1rem;
+    text-align: center;
+    width: 75%;
+  }
+
+  .descriptionLeft{
+    width: 300px;
+    text-align: left;
+  }
+
+  .descriptionLeft p{
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .descriptionDetailsLeft{
+    color: gray;
+  }
+
+  .vl {
+    border-left: 3px solid rgb(199, 194, 194);
+    height: 250px;
+  }
+
+  .descriptionRight span{
+    float: left;
+  }
+
+  .descriptionRight{
+    width: 450px;
+    text-align: left;
+  }
+
+  .descriptionRight p{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 140px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .descriptionDetailsRight{
+    color: gray;
+    margin-left: 140px;
+  }
+
+  @media (min-width: 900px) {
+      .productCard { grid-template-columns: repeat(3, 1fr); }
+      .productSizeOption { grid-template-columns: repeat(7, 1fr); }
+      .productDescription { grid-template-columns: repeat(2, 1fr); }
+    }
+  
+    @media (max-width: 720px) {
+      .productCard { grid-template-columns: repeat(1, 1fr); }
+      .productImageSample { grid-template-columns: repeat(3, 1fr); }
+      .productSizeOption { grid-template-columns: repeat(5, 1fr); }
+      .productDescription { grid-template-columns: repeat(1, 1fr); }
+
+      .productCard {
+        margin: 15px auto;
+        width: 100%;
+      }
+
+      .productImage img{
+        width: 340px;
+        height: 435px;
+        margin: 5px auto;
+        border-radius: 5px;
+      }
+
+      .productCard .productImageSample{
+        margin-left: 10px;
+        width: 95%;
+        height: 30%;
+      }
+
+      .productImageSample {
+        margin: 5px auto;
+        display: grid;
+        grid-gap: 1rem;
+        text-align: center;
+      }
+
+      .productImageSample img{
+        width: 90px;
+        height: 105px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .productCalculation{
+        width: 350px
+      }
+
+      .productName{
+        margin-top: 5px;
+        font-size: 17px;
+        text-align: left;
+        padding: 7px 15px;
+      }
+
+      .productBrand{
+        font-size: 15px;
+        text-align: left;
+        padding: 7px 15px;
+      }
+
+      .productPrice{
+        font-size: 22px;
+        text-align: left;
+        padding: 7px 15px;
+      }
+
+      .productSizeTitle{
+        font-size: 15px;
+        text-align: left;
+        padding: 7px 15px;
+      }
+
+      .productAddCartBtn button{
+        margin-top: 19px;
+        margin-bottom: 0px;
+      }
+
+      .vl {
+        border-left: 0px solid rgb(199, 194, 194);
+        height:0px;
+      }
+
+      /* product desription  */
+
+      .productDescription{
+        margin: 39px 19px;
+        display: grid;
+        grid-gap: 1rem;
+        text-align: center;
+        width: 75%;
+      }
+    
+      .descriptionLeft{
+        width: 250px;
+        text-align: left;
+      }
+    
+      .descriptionLeft p{
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+
+
+      .descriptionRight span{
+        float: left;
+      }
+    
+      .descriptionRight{
+        width: 300px;
+        text-align: left;
+        margin-top: 20px;
+      }
+    
+      .descriptionRight p{
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: 0px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+      
+      .descriptionDetailsRight{
+        color: gray;
+        margin-left: 0px;
+      }
+    }
+  

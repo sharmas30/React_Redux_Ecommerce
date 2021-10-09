@@ -1,0 +1,27 @@
+.productSizeOption{
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+.productSizeOption div{
+    border: 1px solid rgb(197, 193, 193);
+    width: 40px;
+    border-radius: 3px;
+ }
+
+ @media (min-width: 900px) {
+    .productSizeOption { grid-template-columns: repeat(7, 1fr); }
+  }
+
+@media (max-width: 720px) {
+    .productSizeOption { grid-template-columns: repeat(5, 1fr); }
+    .productSizeOption div{
+        border: 1px solid;
+        margin: 2px auto;
+        width: 40px;
+      }
+
+}
