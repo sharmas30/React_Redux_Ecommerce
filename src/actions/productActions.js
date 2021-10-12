@@ -12,7 +12,7 @@ export const listProducts = () => async (dispatch) =>{
         const allData = products
         
         console.log('action_1 ', allData)
-        dispatch({type: myAction.PRODUCT_LIST_SUCCESS, payload: allData})
+        dispatch({type: myAction.PRODUCT_LIST_SUCCESS, payload: allData, isLoading: true})
 
     } catch (error) {
         dispatch({type: myAction.PRODUCT_LIST_FAIL, payload: error})   
