@@ -4,19 +4,20 @@ import '../css/HomeScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts, selectedProducts } from '../actions/productActions.js';
 import Loader from '../components/Loader';
+import { setProductScreenItem } from '../localStorage';
 
 const HomeScreen = () => {
     const dispatch = useDispatch()
     const productList = useSelector( state => state.productList)
     const {loading, products, error } = productList
-    console.log('HHH ', loading);
+    console.log('HHH ', products);
 
     useEffect(()=>{
         dispatch(listProducts())
     }, [])
 
     const sendFunction = (_data) => {
-        dispatch(selectedProducts(_data));
+        setProductScreenItem(_data);
     }
 
     return (

@@ -19,6 +19,7 @@ export default {
             brand: 'Nike',
             rating: 5,
             numReviews: 51,
+            countInStock: 3,
         },
         {
             _id: '3',
@@ -29,6 +30,7 @@ export default {
             brand: 'Adidas',
             rating: 4,
             numReviews: 45,
+            countInStock: 4,
         },
         {
             _id: '4',
@@ -39,7 +41,7 @@ export default {
             brand: 'Under Armour',
             rating: 2.5,
             numReviews: 198,
-            countInStock: 6,
+            countInStock: 2,
         },
         {
             _id: '5',
@@ -50,7 +52,7 @@ export default {
             brand: 'Champion',
             rating: 3.5,
             numReviews: 89,
-            countInStock: 6,
+            countInStock: 1,
         },
         {
             _id: '6',
@@ -61,7 +63,7 @@ export default {
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 0,
         },
         {
             _id: '7',
@@ -72,7 +74,7 @@ export default {
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 7,
         },
         {
             _id: '8',
@@ -83,7 +85,7 @@ export default {
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 5,
         },
         {
             _id: '9',
@@ -94,7 +96,7 @@ export default {
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 0,
         },
         {
             _id: '10',
@@ -105,7 +107,7 @@ export default {
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 4,
         },
         {
             _id: '11',
@@ -116,7 +118,7 @@ export default {
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 9,
         },
         {
             _id: '12',
@@ -127,7 +129,7 @@ export default {
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 1,
         },
     ],
 };

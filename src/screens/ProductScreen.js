@@ -4,9 +4,10 @@ import { useState } from 'react/cjs/react.development';
 import ProductSize from '../components/ProductSize';
 import '../css/ProductScreen.css';
 import '../css/ProductSize.css';
+import { getProductScreenItem } from '../localStorage';
 
 const ProductScreen = () => {    
-    const product = useSelector( state => state.selectedProduct.selectedProducts );
+    const product = getProductScreenItem();
     const [showImg, setImage] = useState(product.image);
 
     if(!product){
@@ -35,19 +36,26 @@ const ProductScreen = () => {
                     <div className='productName'>
                         <span>{product.name}</span>
                     </div>
+                   
                     <div className='productBrand'>
                       <span>{product.brand}</span>
                     </div>
+                   
                     <div className='productPrice'>
                        <span>Rs. {product.price}</span>
                     </div>
+                   
+                    <div className='productStock'>
+                       <span>Stock: {`${product.countInStock}` > 0 ? <span className='productInStock'> In Stock</span> : <span className='productOutStock'>Out Of Stock </span>} </span>
+                    </div>
+                   
                     <div className='productSize'>
                         <div className='productSizeTitle'>Select Size</div>
                         <ProductSize />
                     </div>
 
                     <div className='productAddCartBtn'>
-                        <button>Add To Cart</button>
+                        {`${product.countInStock}`> 0 ? <button>Add To Cart</button> : ''}
                     </div>
                 </div>
             </div>

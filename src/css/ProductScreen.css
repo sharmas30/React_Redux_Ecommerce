@@ -60,6 +60,22 @@
     padding: 2px 1px;
   }
 
+  .productStock{
+    font-size: 16px;
+    text-align: left;
+    padding: 7px 1px;
+  }
+
+  .productInStock{
+    color: rgb(16, 180, 16);
+    font-weight: bold;
+  }
+
+  .productOutStock{
+    color: rgb(196, 37, 16);
+    font-weight: bold;
+  }
+
   .productSizeTitle{
     font-size: 15px;
     text-align: left;
@@ -190,7 +206,13 @@
       }
 
       .productPrice{
-        font-size: 22px;
+        font-size: 19px;
+        text-align: left;
+        padding: 7px 15px;
+      }
+
+      .productStock{
+        font-size: 15px;
         text-align: left;
         padding: 7px 15px;
       }
