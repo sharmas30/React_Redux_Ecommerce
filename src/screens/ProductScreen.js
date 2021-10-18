@@ -9,10 +9,16 @@ import { getProductScreenItem } from '../localStorage';
 const ProductScreen = () => {    
     const product = getProductScreenItem();
     const [showImg, setImage] = useState(product.image);
-
+    const [size, setSize] = useState('')
+    console.log('SIZE', size);
     if(!product){
         return <div> Product Not Found </div>
     }
+
+    const selectSize = (data) => {
+        setSize(data);
+    }
+    
     return (
         <>
             <div className="productCard">
@@ -51,7 +57,7 @@ const ProductScreen = () => {
                    
                     <div className='productSize'>
                         <div className='productSizeTitle'>Select Size</div>
-                        <ProductSize />
+                        <ProductSize sizeFun={selectSize}/>
                     </div>
 
                     <div className='productAddCartBtn'>

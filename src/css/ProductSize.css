@@ -12,6 +12,14 @@
     border-radius: 3px;
  }
 
+ .productSizeOption div:hover{
+  background-color: rgb(141, 145, 141);  
+}
+
+ .activeSize{
+   background-color: rgb(141, 145, 141);
+ }
+
  @media (min-width: 900px) {
     .productSizeOption { grid-template-columns: repeat(7, 1fr); }
   }

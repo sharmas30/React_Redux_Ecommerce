@@ -182,8 +182,8 @@
       }
 
       .productImageSample img{
-        width: 90px;
-        height: 105px;
+        width: 100px;
+        height: 115px;
         cursor: pointer;
         border-radius: 5px;
       }
