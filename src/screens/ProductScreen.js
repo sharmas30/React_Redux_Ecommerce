@@ -1,15 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useState } from 'react/cjs/react.development';
+import ReactJsAlert from "reactjs-alert"; 
 import ProductSize from '../components/ProductSize';
 import '../css/ProductScreen.css';
 import '../css/ProductSize.css';
-import { getProductScreenItem } from '../localStorage';
+import { getCartItems, getProductScreenItem, setCartItems } from '../localStorage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductScreen = () => {    
     const product = getProductScreenItem();
     const [showImg, setImage] = useState(product.image);
     const [size, setSize] = useState('')
+    // const [showAlert, setShowAlert] = useState(false);
+    const [alertState, setAlertState] = useState({
+        type: 'warning',
+        status: false,
+        title: "Please Select Size",
+        quote: "Something went wrong. Please try again!",
+        })
+
     console.log('SIZE', size);
     if(!product){
         return <div> Product Not Found </div>
@@ -18,9 +28,44 @@ const ProductScreen = () => {
     const selectSize = (data) => {
         setSize(data);
     }
-    
+
+    const addToCart = (item) => {
+        if(!size) {            
+            setAlertState({
+                type: 'warning',
+                status: true,
+                title: "Please Select Size",
+                quote: "Something went wrong. Please try again!",
+            })
+            return
+        }
+        else{
+            let cartItems = getCartItems()
+
+            const existItem = cartItems.find((x) => x._id === item._id );
+
+            if(existItem){
+
+            }
+            else{
+                cartItems = [...cartItems, item]
+                console.log('HH__', cartItems);
+                toast.success("Product Add to Cart Successfully...!",
+                {position: toast.POSITION.TOP_CENTER});
+            }
+            setCartItems(cartItems);
+        }
+    }
+
     return (
-        <>
+        <> 
+         <ReactJsAlert
+            status={alertState.status} // true or false
+            type={alertState.type} // success, warning, error, info
+            title={alertState.title}
+            Close={() => setAlertState({ status: false })}
+            />    
+            <ToastContainer />      
             <div className="productCard">
                 <div className='productImage'>
                     <img src= {showImg} /> 
@@ -61,7 +106,7 @@ const ProductScreen = () => {
                     </div>
 
                     <div className='productAddCartBtn'>
-                        {`${product.countInStock}`> 0 ? <button>Add To Cart</button> : ''}
+                        {`${product.countInStock}`> 0 ? <button onClick={()=>addToCart({...product, size})}>Add To Cart</button> : ''}
                     </div>
                 </div>
             </div>
