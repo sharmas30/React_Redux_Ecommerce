@@ -7,12 +7,13 @@ import '../css/ProductSize.css';
 import { getCartItems, getProductScreenItem, setCartItems } from '../localStorage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from 'react-router';
 
 const ProductScreen = () => {    
     const product = getProductScreenItem();
+    const history = useHistory();
     const [showImg, setImage] = useState(product.image);
     const [size, setSize] = useState('')
-    // const [showAlert, setShowAlert] = useState(false);
     const [alertState, setAlertState] = useState({
         type: 'warning',
         status: false,
@@ -35,7 +36,6 @@ const ProductScreen = () => {
                 type: 'warning',
                 status: true,
                 title: "Please Select Size",
-                quote: "Something went wrong. Please try again!",
             })
             return
         }
@@ -45,7 +45,12 @@ const ProductScreen = () => {
             const existItem = cartItems.find((x) => x._id === item._id );
 
             if(existItem){
-
+                setAlertState({
+                    type: 'warning',
+                    status: true,
+                    title: "Item Already In Cart",
+                })
+                return;
             }
             else{
                 cartItems = [...cartItems, item]
@@ -54,6 +59,8 @@ const ProductScreen = () => {
                 {position: toast.POSITION.TOP_CENTER});
             }
             setCartItems(cartItems);
+            history.push('/cart');
+            return;
         }
     }
 
@@ -106,7 +113,7 @@ const ProductScreen = () => {
                     </div>
 
                     <div className='productAddCartBtn'>
-                        {`${product.countInStock}`> 0 ? <button onClick={()=>addToCart({...product, size})}>Add To Cart</button> : ''}
+                        {`${product.countInStock}`> 0 ? <button onClick={()=>addToCart({...product, size, qty: 1})}>Add To Cart</button> : ''}
                     </div>
                 </div>
             </div>

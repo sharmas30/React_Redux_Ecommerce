@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom'
 import './css/App.css'
+import cartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 
@@ -21,8 +22,9 @@ function App() {
 
                 <main className='mainContent'>
                     <Switch>
-                        <Route path= '/product/:id' component={ProductScreen} ></Route>
                         <Route path= '/' component = {HomeScreen} exact></Route>
+                        <Route path= '/product/:id' component={ProductScreen} ></Route>
+                        <Route path= '/cart' component={cartScreen} ></Route>
                     </Switch>
                 </main>
 

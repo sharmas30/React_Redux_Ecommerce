@@ -125,7 +125,7 @@ export default {
             name: 'Aelfric Eden Mens ',
             category: 'Pants',
             image: '/images/product_img_12.jpg',
-            price: 985,
+            price: 219855,
             brand: 'Aelfric Eden',
             rating: 4.5,
             numReviews: 45,
