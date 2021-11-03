@@ -39,6 +39,7 @@ header a {
 
 header a:hover {
     color: #f08040;
+    text-decoration: none;
 }
 
 footer {

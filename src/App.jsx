@@ -5,6 +5,7 @@ import './css/App.css'
 import cartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import SigninScreen from './screens/SigninScreen';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                         <Route path= '/' component = {HomeScreen} exact></Route>
                         <Route path= '/product/:id' component={ProductScreen} ></Route>
                         <Route path= '/cart' component={cartScreen} ></Route>
+                        <Route path= '/signin' component={SigninScreen} ></Route>
                     </Switch>
                 </main>
 

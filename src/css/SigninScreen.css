@@ -1,0 +1,110 @@
+.contain{
+    /* background-image: url('../signin_bg/img_bg_5.jpg'); */
+    /* background-color: #265f97; */
+    background-image: linear-gradient(to top, rgb(77, 141, 194) , rgb(5, 21, 37));
+    margin: 0px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.signInDetails{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.formDetails{
+    display: flex;
+    flex-direction: column;
+    width: 32rem;
+    padding: 2rem;
+    border: 0.1rem #c0c0c0 solid;
+    border-radius: 0.5rem;
+    list-style-type: none;
+    background-color: #ece4e4;
+    color: black;
+    opacity: 0.8;
+    box-shadow: 2px 4px 2px 3px #1b4469;
+}
+
+.formDetails li h1{
+    text-align: center;
+    color: black
+}
+
+.formDetails li{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.formDetails li label {
+    font-size: 15px;
+    font-weight: 500;
+    color: black
+}
+
+.formDetails li input{
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.formDetails li button {
+    padding: 8px;
+    border-radius: 12px;
+    background: #19344e;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0px;
+    text-shadow: 1px 2px 1px rgb(158, 153, 153);
+    box-shadow: 2px 3px 3px 2px rgb(163, 159, 159);
+
+}
+
+.new-user {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.new-user a {
+    color: rgb(22 22 23 / 93%);
+    font-weight: 700;
+}
+
+.new-user a:hover {
+    text-shadow: 0px 4px 7px rgb(110, 110, 110);
+    color: rgb(22 22 23 / 93%);
+    text-decoration: none;
+}
+
+.forget-pass {
+    font-size: 13px;
+    color: rgb(22 22 23 / 93%);
+    font-weight: 500;
+    margin: 15px 0px;
+    text-align: left;
+}
+
+.forget-pass span{
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.forget-pass a:hover {
+    text-shadow: 0px 4px 7px rgb(110, 110, 110);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+@media (max-width: 720px) {
+    .signInDetails{
+        margin-top: 70px;
+    }
+}

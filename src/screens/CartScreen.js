@@ -90,7 +90,7 @@ const CartScreen = () => {
                 <div className='col-lg-4 col-12 cartLeft'>
                     <div className='subTotal'>Subtotal ({cartProducts.reduce((a, c) => a + c.qty, 0)} items)
                     : Rs. {cartProducts.reduce((a, c) => a + c.qty * c.price, 0)}</div>
-                    <button className='proceedToCheckout'>Proceed To Checkout</button>
+                    <button className='proceedToCheckout' onClick={()=>history.push('/signin')}>Proceed To Checkout</button>
                 </div>
             </div>
         </>
