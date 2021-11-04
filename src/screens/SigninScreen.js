@@ -32,7 +32,7 @@ const SigninScreen = () => {
                             </div>
                             <div className="new-user">
                                 New User ?
-                                <NavLink to="/register"> Create Your Account </NavLink>
+                                <NavLink to="/register"> <span> Create Your Account</span>  </NavLink>
                             </div>
 
                         </ul>

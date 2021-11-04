@@ -25,7 +25,7 @@
     background-color: #ece4e4;
     color: black;
     opacity: 0.8;
-    box-shadow: 2px 4px 2px 3px #1b4469;
+    box-shadow: 1px 3px 2px 2px #2a608f;
 }
 
 .formDetails li h1{
@@ -85,7 +85,6 @@
     text-decoration: none;
 }
 
-
 .new-user {
     font-size: 14px;
     font-weight: 500;
@@ -104,7 +103,7 @@
 }
 
 .new-user span{
-    animation: blinker 3s linear infinite;
+    animation: blinker 1s linear infinite;
 }
 
 @keyframes blinker {
@@ -113,9 +112,8 @@
     }
   }
 
-
 @media (max-width: 720px) {
-    .signInDetails{
-        margin-top: 70px;
+    .registerDetails{
+        margin-top: 20px;
     }
 }
