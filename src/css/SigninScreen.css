@@ -104,7 +104,8 @@
 }
 
 .new-user span{
-    animation: blinker 3s linear infinite;
+    animation: blinker 2s linear infinite;
+    color: red;
 }
 
 @keyframes blinker {
