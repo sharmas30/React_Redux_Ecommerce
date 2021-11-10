@@ -1,3 +1,6 @@
+.row{
+    padding: 0px 4.9%;
+}
 .contain{
     /* background-image: url('../signin_bg/img_bg_5.jpg'); */
     /* background-color: #265f97; */
@@ -6,6 +9,10 @@
     background-size: 100%;
     background-repeat: no-repeat;
     height: 100vh;
+}
+
+.shipping-status {
+    margin: 20px auto;
 }
 
 .signInDetails{
@@ -117,6 +124,6 @@
 
 @media (max-width: 720px) {
     .signInDetails{
-        margin-top: 70px;
+        margin-top: 2px;
     }
 }

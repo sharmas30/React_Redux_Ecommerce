@@ -4,8 +4,10 @@ import { Route, Switch } from 'react-router-dom'
 import './css/App.css'
 import cartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
+import PaymentScreen from './screens/PaymentScreen';
 import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from './screens/RegestierScreen';
+import ShippingScreen from './screens/ShippingScreen';
 import SigninScreen from './screens/SigninScreen';
 
 function App() {
@@ -16,9 +18,9 @@ function App() {
                     <div>
                         <NavLink to="/">Sharmas</NavLink>
                     </div>
-                    <div>
-                        <NavLink to="/signin">Signin</NavLink>
-                        <NavLink to="/cart">Cart</NavLink>
+                    <div className='cartIcon'>
+                        {/* <NavLink to="/signin">Signin</NavLink> */}
+                        <NavLink to="/cart"><i className='fa fa-shopping-cart'></i></NavLink>
                     </div>
                 </header>
 
@@ -29,6 +31,8 @@ function App() {
                         <Route path= '/cart' component={cartScreen} ></Route>
                         <Route path= '/signin' component={SigninScreen} ></Route>
                         <Route path= '/register' component={RegisterScreen} ></Route>
+                        <Route path= '/shipping' component={ShippingScreen} ></Route>
+                        <Route path= '/payment' component={PaymentScreen} ></Route>
                     </Switch>
                 </main>
 

@@ -1,5 +1,7 @@
 import { isAdmin } from "@firebase/util";
 
+// PRODUCT SCREEN //
+
 export const setProductScreenItem = (item) => {
     localStorage.setItem('productScreenItem', JSON.stringify(item))
 };
@@ -9,6 +11,9 @@ export const getProductScreenItem = () =>{
         JSON.parse(localStorage.getItem('productScreenItem')) : {};
     return ProductScreenItem;
 }
+
+
+// CART SCREEN //
 
 export const setCartItems = (cartItems) => {
     console.log('UUU__', cartItems);
@@ -20,6 +25,9 @@ export const getCartItems = () => {
         JSON.parse(localStorage.getItem('cartItems')) : [];
     return cartItems;
 }
+
+
+// SIGNIN and REGISTER SCREEN //
 
 export const setUserInfo = ({
     fname = '',
@@ -38,4 +46,37 @@ export const setUserInfo = ({
 export const getUserInfo = () => {
     return localStorage.getItem('userInfo') ?
         JSON.parse(localStorage.getItem('userInfo')) : {};
+}
+
+
+// SHIPPING SCREEN //
+
+export const setShippingInfo = ({
+    fullName = '',
+    mobile = '',
+    address = '',
+    city = '',
+    postalCode = '',
+    country = ''
+}) =>{
+    localStorage.setItem('shippingDetails', JSON.stringify({
+        fullName, mobile, address, city, postalCode, country
+    }))
+}
+
+export const getShippingInfo = () => {
+    return localStorage.getItem('shippingDetails') ? JSON.parse(localStorage.getItem('shippingDetails')) : {};
+}
+
+// PAYMENT SCREEN //
+
+export const setPayment = ({paymentMethod = 'Google Pay'}) => {
+    localStorage.setItem('payment', JSON.stringify({paymentMethod}))
+}
+
+export const getPayment = () => {
+    const payment = localStorage.getItem('payment') ?
+        JSON.parse(localStorage.getItem('payment')) : {
+            paymentMethod: 'Google Pay'
+    }
 }

@@ -5,13 +5,11 @@ import { useHistory } from 'react-router';
 
 const CartScreen = () => {
     const cartProducts = getCartItems();
-    console.log('BB__**', cartProducts);
     const history = useHistory();
 
     const quantitySelect = (qty, product) => {
         const item = cartProducts.find((x) => x._id == product._id)
         sendItemToCart({...item, qty: Number(qty.target.value)}, true)
-        console.log("CCC__1 ", qty.target.value);
     }
 
     const sendItemToCart = (item, forceUpdate = false) => {

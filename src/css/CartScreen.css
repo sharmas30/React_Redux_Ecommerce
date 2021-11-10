@@ -3,6 +3,10 @@
   padding: 6.9%;
 }
 
+.cartRight{
+  margin-top: 15px;
+}
+
 .cartLeft{
   height: 135px;
   max-width: 330px;
@@ -109,7 +113,7 @@
     margin: 0;
   }
   .cartRight{
-    padding: 8px;
+    padding: 1px;
   }
 
   .cartProductDetail{

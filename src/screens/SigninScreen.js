@@ -7,11 +7,14 @@ import {getAuth, signInWithEmailAndPassword } from "firebase/auth"
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { setUserInfo } from '../localStorage';
+import { getCartItems, getUserInfo, setUserInfo } from '../localStorage';
+import { useHistory } from 'react-router';
+import { checkoutSteps } from '../utils';
 
 const SigninScreen = () => {
 
     const [userzSiginin, setUserzSignin] = useState({})
+    const history = useHistory();
 
     const signInUser = () => {
         const auth = getAuth();
@@ -25,6 +28,7 @@ const SigninScreen = () => {
             onValue(userRef, (snapshot) => {
                 const data = snapshot.val();
                 setUserInfo(data);
+                redirectUser();
             })
 
         })
@@ -36,10 +40,25 @@ const SigninScreen = () => {
         })
     }
 
+    const redirectUser = () =>{
+        if(getCartItems().length !== 0){
+            history.push('/shipping');
+        } else{
+            history.push('/');
+        }
+    }
+
+    if(getUserInfo().email){
+        redirectUser();
+    }
+
     return (
         <>
-           <ToastContainer />      
-           <div className='row contain'>
+            <ToastContainer />   
+            <div className='row contain'>
+            <div className="shipping-status">
+                {checkoutSteps({step1: true})}
+            </div>   
                 <div className='col-lg-12 col-12 signInCart' >
                     <div className='signInDetails'>
                         <ul className='formDetails'>

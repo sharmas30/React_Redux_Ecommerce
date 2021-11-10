@@ -1,5 +1,5 @@
 .row{
-    padding: 4.9%;
+    padding: 0px 4%;
 }
 .contain{
     /* background-image: url('../signin_bg/img_bg_5.jpg'); */
@@ -11,13 +11,17 @@
     position: absolute;
 }
 
-.signInDetails{
+.shippingDetails{
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
-.formDetails{
+.registerCard{
+    margin-top: 0px;
+}
+
+.shippingformDetails{
     display: flex;
     flex-direction: column;
     width: 32rem;
@@ -31,31 +35,36 @@
     box-shadow: 1px 3px 2px 2px #2a608f;
 }
 
-.formDetails li h1{
+.shippingformDetails li h1{
     text-align: center;
     color: black
 }
 
-.formDetails li{
+.shippingformDetails li{
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
 
-.formDetails li label {
+.shippingformDetails li label {
     font-size: 15px;
     font-weight: 500;
     color: black
 }
 
-.formDetails li input{
+.shippingformDetails li input{
     padding: 5px;
     border-radius: 8px;
     font-size: 15px;
 }
 
-.formDetails li button {
+.shippingformDetails textarea{
+    border-radius: 7px;
+    border: 1.5px solid black;
+}
+
+.shippingformDetails li button {
     padding: 8px;
     border-radius: 12px;
     background: #19344e;
@@ -63,61 +72,17 @@
     font-size: 18px;
     font-weight: bold;
     border: 0px;
-    text-shadow: 1px 2px 1px rgb(158, 153, 153);
+    text-shadow: 1px 1px 1px rgb(158, 153, 153);
     box-shadow: 2px 3px 3px 2px rgb(163, 159, 159);
 
 }
 
-.forget-pass {
-    font-size: 13px;
-    color: rgb(22 22 23 / 93%);
-    font-weight: 500;
-    margin: 15px 0px;
-    text-align: left;
+.shippingContinue i{
+    margin-left: 8px;
 }
-
-.forget-pass span{
-    color: black;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.forget-pass a:hover {
-    text-shadow: 0px 4px 7px rgb(110, 110, 110);
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.new-user-register {
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 5px;
-}
-
-.new-user-register a {
-    color: rgb(22 22 23 / 93%);
-    font-weight: 700;
-}
-
-.new-user-register a:hover {
-    text-shadow: 0px 4px 7px rgb(110, 110, 110);
-    color: rgb(22 22 23 / 93%);
-    text-decoration: none;
-}
-
-.new-user-register span{
-    animation: blinker 2s linear infinite;
-    color: green;
-}
-
-@keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
 
 @media (max-width: 720px) {
-    .registerDetails{
-        margin-top: 20px;
+    .shippingDetails_1{
+        margin-top: 2px;
     }
 }

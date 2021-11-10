@@ -7,11 +7,13 @@ import {getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { setUserInfo } from '../localStorage';
+import { getCartItems, setUserInfo } from '../localStorage';
+import { useHistory } from 'react-router';
 
 const RegisterScreen = () => {
 
     const [userRegister, setuserRegister] = useState({})
+    const history = useHistory();
 
     const createUser = () => {
         const auth = getAuth();
@@ -29,6 +31,7 @@ const RegisterScreen = () => {
                 const data = snapshot.val();
                 console.log("GET DATA_1 ", data);
                 setUserInfo(data);
+                redirectUser();
             })
 
         }).catch((err)=>{
@@ -36,6 +39,14 @@ const RegisterScreen = () => {
             toast.error("Something weng wrong!",
             {position: toast.POSITION.TOP_CENTER});
         })
+    }
+
+    const redirectUser = () =>{
+        if(getCartItems().length !== 0){
+            history.push('/shipping');
+        } else{
+            history.push('/');
+        }
     }
 
     return (
