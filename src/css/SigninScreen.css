@@ -2,9 +2,6 @@
     padding: 0px 4.9%;
 }
 .contain{
-    /* background-image: url('../signin_bg/img_bg_5.jpg'); */
-    /* background-color: #265f97; */
-    background-image: linear-gradient(to top, rgb(77, 141, 194) , rgb(5, 21, 37));
     margin: 0px;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -15,6 +12,10 @@
     margin: 20px auto;
 }
 
+.signInCart{
+bottom: 90px
+;
+}
 .signInDetails{
     display: flex;
     justify-content: center;

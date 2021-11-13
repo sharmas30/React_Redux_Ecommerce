@@ -1,9 +1,6 @@
-.row{
-    padding: 0px 4%;
-}
+
 .contain{
-    /* background-image: url('../signin_bg/img_bg_5.jpg'); */
-    background-image: linear-gradient(to top, rgb(77, 141, 194) , rgb(5, 21, 37));
+    padding: 0px 4%!important;
     margin: 0px;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -29,9 +26,9 @@
     border: 0.1rem #c0c0c0 solid;
     border-radius: 0.5rem;
     list-style-type: none;
-    background-color: #ece4e4;
+    background-color: white;
     color: black;
-    opacity: 0.8;
+    opacity: 1;
     box-shadow: 1px 3px 2px 2px #2a608f;
 }
 

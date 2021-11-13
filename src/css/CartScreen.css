@@ -22,6 +22,7 @@
 
 .tableHeading th{
   padding-bottom: 10px;
+  color: white;
 }
 
 .tableHeading th:nth-child(3){
@@ -33,6 +34,7 @@
   width: 100%;
   border-top: 0.2px solid rgb(224, 219, 219);
   margin: 10px 0px;
+  border: 0.2px solid white;
 }
 
 .cartImage img{
@@ -52,6 +54,7 @@
   font-weight: 600;
   font-size: 15px;
   margin-bottom: 15px;
+  color: white;
 }
 
 .cartQuantity {
@@ -60,21 +63,23 @@
 
 .cartQuantity span {
   font-weight: bold;
+  color: white;
 }
 
 .cartQuantity button {
-  padding: 1px 2px;
+  padding: 2px 4px;
+  border: 0px ;
   border-radius: 5px;
   margin-left: 3px;
 }
 
 .cartQuantity input {
   border-radius: 5px;
-  padding-top: 1px;
-  padding-bottom: 2px;
+  padding: 2px 4px;
   text-align: center;
   width: 37px;
   margin: 0px 5px;
+  border: 0px;
 }
 
 .cartProductPrice{
@@ -82,6 +87,7 @@
   text-align: center;
   font-size: 18px;
   vertical-align: center;
+  color: white;
 }
 
 .subTotal{

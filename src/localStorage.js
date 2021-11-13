@@ -79,4 +79,5 @@ export const getPayment = () => {
         JSON.parse(localStorage.getItem('payment')) : {
             paymentMethod: 'Google Pay'
     }
+    return payment
 }

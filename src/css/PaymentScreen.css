@@ -2,7 +2,6 @@
     padding: 0px 4.5%;
 }
 .contain{
-    background-image: linear-gradient(to top, rgb(77, 141, 194) , rgb(5, 21, 37));
     margin: 0px;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -16,7 +15,7 @@
 .paymentDetails{
     border: 0.1rem #c0c0c0 solid;
     border-radius: 0.5rem;
-    background-color: #ece4e4;
+    background-color: white;
     width: 29rem;
     margin: 2px auto;
     padding: 0px;
@@ -34,7 +33,7 @@
 }
 
 .paymentformDetails p{
-    font-size: 13 px;
+    font-size: 13px;
     margin-bottom: 25px;
 }
 

@@ -37,7 +37,7 @@ const PaymentScreen = () => {
                             </li>
 
                             <li>
-                                <input type='radio' name='payment_method' value='Cash' required='required' />
+                                <input type='radio' name='payment_method' value='Cash on Delivery' required='required' />
                                 <label for='pay'>Cash On Delivery</label>
                             </li>
 

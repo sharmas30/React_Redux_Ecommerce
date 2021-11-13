@@ -46,24 +46,28 @@
     margin-top: 20px;
     text-align: left;
     padding: 3px 1px;
+    color: white;
   }
 
   .productBrand{
     font-size: 16px;
     text-align: left;
     padding: 7px 1px;
+    color: white;
   }
 
   .productPrice{
     font-size: 22px;
     text-align: left;
     padding: 2px 1px;
+    color: white;
   }
 
   .productStock{
     font-size: 16px;
     text-align: left;
     padding: 7px 1px;
+    color: white;
   }
 
   .productInStock{
@@ -80,6 +84,7 @@
     font-size: 15px;
     text-align: left;
     padding: 5px 1px;
+    color: white;
   }
 
   .productAddCartBtn button{
@@ -101,11 +106,13 @@
     grid-gap: 1rem;
     text-align: center;
     width: 75%;
+    color: white;
   }
 
   .descriptionLeft{
     width: 300px;
     text-align: left;
+    color: white;
   }
 
   .descriptionLeft p{
@@ -115,7 +122,7 @@
   }
 
   .descriptionDetailsLeft{
-    color: gray;
+    color: rgb(168, 165, 165);
   }
 
   .vl {

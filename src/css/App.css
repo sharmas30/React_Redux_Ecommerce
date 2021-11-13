@@ -13,6 +13,10 @@ body {
     margin: 0;
 }
 
+.mainContent{
+    background-image: linear-gradient(to top, rgb(24, 68, 104) , rgb(9, 37, 65));
+}
+
 .grid-container {
     display: grid;
     grid-template-areas: "header" "main" "footer";
