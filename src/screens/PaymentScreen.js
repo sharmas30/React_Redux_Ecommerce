@@ -14,11 +14,11 @@ const PaymentScreen = () => {
 
     return (
         <>
-            <div className='row contain'>
+            <div className='row paymentContain'>
             <div className="shipping-status">
                 {checkoutSteps({step1: true, step2: true, step3: true})}
             </div>   
-                <div className='col-lg-12 col-12' >
+                <div className='col-lg-12 col-12 paymentCard' >
                     <div className='paymentDetails'>
                         <ul className='paymentformDetails' onChange={(e)=>getPaymentInfo(e)}>
                             <li>

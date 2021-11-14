@@ -2,13 +2,24 @@ import React from 'react'
 import { useState } from 'react/cjs/react.development'
 import '../css/ShippingScreen.css'
 import { useHistory } from 'react-router';
-import { setShippingInfo } from '../localStorage';
+import { getShippingInfo, setShippingInfo } from '../localStorage';
 import { checkoutSteps } from '../utils';
 
 const ShippingScreen = () => {
-
-    const [shippingDetails, setShippingDetails] = useState({});
+    
+    const shipping_details = getShippingInfo();
+    console.log("NNNN ", shipping_details)
+    const [shippingDetails, setShippingDetails] = useState({
+        fullName: shipping_details.fullName,
+        mobile : shipping_details.mobile,
+        address : shipping_details.address,
+        city : shipping_details.city,
+        postalCode : shipping_details.postalCode,
+        country : shipping_details.country
+    });
     const history = useHistory();
+
+    console.log("SHHHH_ ", shippingDetails)
 
     const saveShippingDetails = () => {
         console.log('SHIPPING_ 1', shippingDetails)
@@ -16,10 +27,11 @@ const ShippingScreen = () => {
         history.push('/payment');
     }
 
+
     return (
         <>
         <form>
-           <div className=' row contain'>
+           <div className=' row '>
            <div className="shipping-status">
                 {checkoutSteps({step1: true, step2: true})}
             </div> 

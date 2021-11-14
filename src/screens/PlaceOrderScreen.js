@@ -1,9 +1,12 @@
 import React from 'react'
 import '../css/PlaceOrderScreen.css'
-import { getCartItems, getPayment, getShippingInfo } from '../localStorage'
+import { cleanCart, getCartItems, getPayment, getShippingInfo, getUserInfo } from '../localStorage'
 import { checkoutSteps } from '../utils'
 import { useHistory } from 'react-router';
-
+import fire from '../config/fire';
+import { getDatabase, ref, set, onValue } from "firebase/database";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PlaceOrderScreen = () => {
 
@@ -21,14 +24,13 @@ const PlaceOrderScreen = () => {
         }
 
         const payment = getPayment();
-        console.log("PPP ", payment);
         if (!payment.paymentMethod) {
             document.location.hash = '/payment';
         }
 
         const totalItemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
         const shippingPrice = totalItemsPrice > 200 ? 0 : 50;
-        const taxPrice = Math.trunc(Math.round(0.15 * totalItemsPrice * 100) / 100);
+        const taxPrice = Math.trunc(Math.round(0.12 * totalItemsPrice * 100) / 100);
         const totalPrice = totalItemsPrice + shippingPrice + taxPrice;
         return {
             orderItems,
@@ -39,6 +41,39 @@ const PlaceOrderScreen = () => {
             taxPrice,
             totalPrice
         };
+    }
+
+    const placeOrder = () => {
+        const order = convertCartToOrder();
+        const userInfo = getUserInfo()
+        var d = new Date();
+        var order_date = d.toLocaleString();
+        var n = d.toISOString();
+        var id = n.split(':')[0] + n.split(':')[1] + n.split(':')[2].slice(0, 6)
+        var order_id = id.replace(/-/g, '').replace('.', '').replace('T', '');
+
+        const db = getDatabase();
+        set(ref(db, 'orders/' + order_id), {
+            orderItems: order.orderItems,
+            shipping: order.shipping,
+            payment: order.payment,
+            totalItemsPrice: order.totalItemsPrice,
+            shippingPrice: order.shippingPrice,
+            taxPrice: order.taxPrice,
+            totalPrice: order.totalPrice,
+            orderDate: order_date,
+            order_id: order_id,
+            isDelivered: false,
+            deliveredAt: '',
+            user_id: userInfo.userId,
+            userName: `${userInfo.fname}  ${userInfo.lname}`,
+            uphone_number: userInfo.mobile,
+        })
+
+        toast.success("Order Placed Successfully...!",
+        {position: toast.POSITION.TOP_CENTER});
+
+        cleanCart();
     }
 
     const {
@@ -55,16 +90,25 @@ const PlaceOrderScreen = () => {
         <>
         <div className="container content">
             <div className='row '>
+            <ToastContainer />      
             <div className="shipping-status">
                 {checkoutSteps({step1: true, step2: true, step3: true, step4: true})}
             </div> 
                 <div className='col-lg-8 col-12 order'>
+                    <div className="payment_info">
+                        <h2>Customer Details</h2>
+                        <div className='payment_details'>
+                            <h5>
+                                {shipping.fullName}, {shipping.mobile}
+                            </h5>
+                        </div>
+                    </div>
                     <div className="address_info">
                         <h2>Shipping Address</h2>
                         <div className='address_details'>
                             <h5>
-                            {shipping.address}, {shipping.city}, {shipping.postalCode},
-                            {shipping.country}   
+                            {shipping.address}, {shipping.city}, {shipping.postalCode}, 
+                             {shipping.country}   
                             </h5>
                         </div>
                     </div>
@@ -73,7 +117,7 @@ const PlaceOrderScreen = () => {
                         <h2>Payment</h2>
                         <div className='payment_details'>
                             <h5>
-                                Payment Method : ${payment.paymentMethod}
+                                Payment Method : {payment.paymentMethod}
                             </h5>
                         </div>
                     </div>
@@ -109,7 +153,7 @@ const PlaceOrderScreen = () => {
                                     <span> Qty : {item.qty} </span>     
                                 </td>
 
-                                <td className='cartProductPrice'>
+                                <td className='shippingcartProductPrice'>
                                     Rs. {item.price}
                                 </td>
                             </tr>
@@ -154,7 +198,7 @@ const PlaceOrderScreen = () => {
                        </tr>
                    </table>
                    <div className="final_button">
-                           <button type='submit' className='paymentContinue'>Place Order</button>
+                           <button type='submit' className='paymentContinue' onClick={placeOrder}>Place Order</button>
                     </div>
                 </div>
             </div>   

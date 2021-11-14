@@ -55,7 +55,7 @@ const SigninScreen = () => {
     return (
         <>
             <ToastContainer />   
-            <div className='row contain'>
+            <div className='row signinContain'>
             <div className="shipping-status">
                 {checkoutSteps({step1: true})}
             </div>   

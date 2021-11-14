@@ -48,7 +48,7 @@ const CartScreen = () => {
                         ? <div><h3>Cart is empty.  <NavLink to="/">Go Shopping</NavLink></h3></div>
                         : cartProducts.map((product) => (
                         <>
-                            <tr>
+                            <tr className="cartHorizLine">
                                 <td>
                                     <span className='line'></span>
                                 </td>

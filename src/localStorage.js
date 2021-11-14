@@ -26,6 +26,9 @@ export const getCartItems = () => {
     return cartItems;
 }
 
+export const cleanCart = () => {
+    localStorage.removeItem('cartItems');
+};
 
 // SIGNIN and REGISTER SCREEN //
 

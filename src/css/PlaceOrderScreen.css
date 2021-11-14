@@ -86,7 +86,11 @@
     height: 10px!important;
 }
 .horizontalLine hr{
-    border: 0.5px solid rgb(206, 200, 200);
+    border: 0.7px solid rgb(206, 200, 200);
+}
+
+.horizontalLine td{
+    padding: 0px;
 }
 
 .table_row_1 td:nth-child(1){
@@ -106,6 +110,11 @@
     padding: 12px;
 }
 
+.cartImage img{
+    box-shadow: 1px 1px 1px 1px rgb(209, 204, 204);
+
+}
+
 .shoppingCartDetails{
     padding-bottom: 43px;
     padding-left: 1px;
@@ -121,10 +130,12 @@
     font-size: 15px;
 }
 
-.cartProductPrice{
+.shippingcartProductPrice{
     text-align: right;
     padding-right: 30px;
     padding-bottom: 90px;
+    color: rgb(99, 93, 93);
+    width: 110px;
 }
 
 .total_price{
@@ -132,7 +143,7 @@
     border-radius: 9px;
     background-color: #f8f7f7;
     height: 325px;
-    margin: 20px auto;
+    margin: 26px auto;
 }
 
 .total_price h4{
@@ -270,7 +281,7 @@
 .shoppingCartDetails{
     padding-bottom: 25px;
     padding-left: 1px;
-    width: 300px;
+    width: 195px;
 }
 
 .shoppingCartDetails h4{
@@ -281,7 +292,7 @@
     font-size: 14px;
 }
 
-.cartProductPrice{
+.shippingcartProductPrice{
     text-align: right;
     padding-right: 10px;
     padding-bottom: 80px;

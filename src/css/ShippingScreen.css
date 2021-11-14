@@ -1,13 +1,4 @@
 
-.contain{
-    padding: 0px 4%!important;
-    margin: 0px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 100vh;
-    position: absolute;
-}
-
 .shippingDetails{
     display: flex;
     justify-content: center;

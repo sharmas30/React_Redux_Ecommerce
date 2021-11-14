@@ -1,16 +1,11 @@
 .row{
     padding: 0px 4.5%;
 }
-.contain{
-    margin: 0px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
 
 .shipping-status {
     margin: 20px auto;
 }
+
 
 .paymentDetails{
     border: 0.1rem #c0c0c0 solid;
@@ -19,7 +14,7 @@
     width: 29rem;
     margin: 2px auto;
     padding: 0px;
-    margin-top: -215px;
+    /* margin-top: -215px; */
 }
 
 .paymentformDetails{
