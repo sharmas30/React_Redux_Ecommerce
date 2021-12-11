@@ -1,0 +1,86 @@
+
+.productCreateDetails{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.productCreateCard{
+    margin-top: 0px;
+}
+
+.productCreateformDetails{
+    display: flex;
+    flex-direction: column;
+    width: 32rem;
+    padding: 2rem;
+    border: 0.1rem #c0c0c0 solid;
+    border-radius: 0.5rem;
+    list-style-type: none;
+    background-color: white;
+    color: black;
+    opacity: 1;
+    box-shadow: 1px 3px 2px 2px #2a608f;
+}
+
+.productCreateformDetails li h1{
+    text-align: center;
+    color: black
+}
+
+.productCreateformDetails li{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.productCreateformDetails li label {
+    font-size: 15px;
+    font-weight: 500;
+    color: black
+}
+
+.productCreateformDetails li input{
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.imageFile{
+    width: 92px;
+    height: 94px;
+    border: 1px solid rgb(73, 71, 71);
+}
+
+.imageFile img{
+    width: 90px;
+    height: 95px;
+}
+
+.chooseFile{
+    box-shadow: 1px 1px 1px rgb(248, 247, 247);
+}
+
+.productCreateformDetails li button {
+    padding: 8px;
+    border-radius: 12px;
+    background: #19344e;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0px;
+    text-shadow: 1px 1px 1px rgb(158, 153, 153);
+    box-shadow: 2px 3px 3px 2px rgb(163, 159, 159);
+
+}
+
+.shippingContinue i{
+    margin-left: 8px;
+}
+
+@media (max-width: 720px) {
+    .productCreateDetails_1{
+        margin-top: 2px;
+    }
+}

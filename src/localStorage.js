@@ -84,3 +84,16 @@ export const getPayment = () => {
     }
     return payment
 }
+
+// product create img //
+
+export const setImaget = (img) => {
+    console.log("LLL ", img)
+    localStorage.setItem('image', JSON.stringify({img}))
+}
+
+export const getImage = () => {
+    const productImage =  JSON.parse(localStorage.getItem('image'))
+    console.log("MMM ", productImage)
+    return productImage;
+}
