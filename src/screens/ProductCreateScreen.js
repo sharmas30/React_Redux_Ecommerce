@@ -30,6 +30,10 @@ const ProductCreateScreen = () => {
     }
 
     const uploadPictureDetails = (e) => {
+        console.log("HHHHHH___", image)
+        console.log("JJJJJJ___", productDetails )
+        console.log("KKKKKK___", e )
+        if(image){
             var d = new Date();
             var n = d.toISOString();
             var id = n.split(':')[0] + n.split(':')[1] + n.split(':')[2].slice(0, 6)
@@ -78,6 +82,11 @@ const ProductCreateScreen = () => {
                 })},
                 
             );
+        }
+        else{
+            toast.error("Please Upload Image",
+            {position: toast.POSITION.TOP_CENTER});
+        }
     }       
 
     return (
@@ -86,47 +95,55 @@ const ProductCreateScreen = () => {
             <ToastContainer /> 
                 <div className='col-lg-12 col-12 productCreateCard' >
                     <div className='productCreateDetails productCreateDetails_1'>
-                        <ul className='productCreateformDetails'>
-                            <li>
-                                <h1>Create Product</h1>
-                            </li>
-                            
-                            <li>
-                                <label >Product Name</label>
-                                <input type='text' name='fname' value={productDetails.productName} onChange={(e)=> setProductDetails({...productDetails, productName: e.target.value})} required />
-                            </li>
+                        <form>
+                            <ul className='productCreateformDetails'>
+                                <li>
+                                    <h1>Create Product</h1>
+                                </li>
+                                
+                                <li>
+                                    <label >Product Name</label>
+                                    <input type='text' name='fname' value={productDetails.productName} onChange={(e)=> setProductDetails({...productDetails, productName: e.target.value})} required />
+                                </li>
 
-                            <li className='imageFile'>
-                                <img src={image}  />
-                            </li>
-                            <div className="chooseFile">
-                                <input type="file" onChange={onImageChange} />
-                            </div>
 
-                            <li>
-                                <h4>{progressState} <span> </span>{progress} %</h4>
-                            </li>
+                                <li className='imageFile'>
+                                    <img src={image}  />
+                                </li>
+                                <div className="chooseFile">
+                                    <input type="file" onChange={onImageChange} />
+                                </div>
+                                <li>
+                                    <h4>{progressState} <span> </span>{progress} %</h4>
+                                </li>
 
-                            <li>
-                                <label>Product Price</label>
-                                <input type='text' name='Product_Price' value={productDetails.productPrice} onChange={(e)=> setProductDetails({...productDetails, productPrice: e.target.value})} required='required' />
-                            </li>
 
-                            <li>
-                                <label>Product Brand</label>
-                                <input type="text" name="Product_Brand" value={productDetails.productBrand} onChange={(e)=> setProductDetails({...productDetails, productBrand: e.target.value})} required='required' />
-                            </li>
+                                <li>
+                                    <label>Product Price</label>
+                                    <input type='text' name='Product_Price' value={productDetails.productPrice} onChange={(e)=> setProductDetails({...productDetails, productPrice: e.target.value})} required/>
+                                </li>
 
-                            <li>
-                                <label>Category</label>
-                                <input type='text' name='Category' value={productDetails.productCategory} onChange={(e)=> setProductDetails({...productDetails, productCategory: e.target.value})} required='required' />
-                            </li>
+                                <li>
+                                    <label>Product Brand</label>
+                                    <input type="text" name="Product_Brand" value={productDetails.productBrand} onChange={(e)=> setProductDetails({...productDetails, productBrand: e.target.value})} required />
+                                </li>
 
-                            <li>
-                                <button type='submit' className='shippingContinue' onClick={(e)=>uploadPictureDetails(e)} >Submit </button>
-                            </li>
+                                <li>
+                                    <label>Category</label>
+                                    <input type='text' name='Category' value={productDetails.productCategory} onChange={(e)=> setProductDetails({...productDetails, productCategory: e.target.value})} required />
+                                </li>
 
-                        </ul>
+                                <li>
+                                    <label>Count in Stock </label>
+                                    <input type="number" name="Product_Count" value={productDetails.ProductCount} onChange={(e)=> setProductDetails({...productDetails, ProductCount: e.target.value})} required />
+                                </li>
+                                
+                                <li>
+                                    <button type='submit' className='shippingContinue' onClick={(e)=>uploadPictureDetails(e)} >Submit </button>
+                                </li>
+
+                            </ul>
+                        </form>
                     </div>
                 </div>
            </div>

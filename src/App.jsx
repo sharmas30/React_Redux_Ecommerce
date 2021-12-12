@@ -10,6 +10,7 @@ import ProductCreateScreen from './screens/ProductCreateScreen';
 import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from './screens/RegestierScreen';
 import ShippingScreen from './screens/ShippingScreen';
+import Sidebar from './screens/Sidebar';
 import SigninScreen from './screens/SigninScreen';
 
 function App() {
@@ -21,8 +22,10 @@ function App() {
                         <NavLink to="/">Sharmas</NavLink>
                     </div>
                     <div className='cartIcon'>
-                        {/* <NavLink to="/signin">Signin</NavLink> */}
-                        <NavLink to="/cart"><i className='fa fa-shopping-cart'></i></NavLink>
+                        <div className='cart_icon'>
+                            <NavLink to="/cart"><i className='fa fa-shopping-cart'></i></NavLink>
+                        </div>
+                        <div className='hamburger'><Sidebar /></div>
                     </div>
                 </header>
 
