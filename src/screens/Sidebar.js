@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as MdIcons from 'react-icons/md';
 import { SidebarData } from './SideBarData';
 import "../css/Navbar.css";
 import {IconContext} from 'react-icons'
+import { getUserInfo } from '../localStorage';
+const { fname, isAdmin } = getUserInfo();
 
 const Sidebar = () => {
 
@@ -27,6 +30,25 @@ const Sidebar = () => {
                 <AiIcons.AiOutlineClose />
               </NavLink>
             </li>
+
+            <li>
+              {
+                fname ? 
+                <li className="nav-text">
+                <NavLink to='/signin' >
+                <FaIcons.FaUser />
+                  <span>{fname}</span>
+                </NavLink>
+                </li> 
+                : <li className="nav-text">
+                  <NavLink to='/signin' >
+                  <FaIcons.FaUser />
+                    <span>Signin</span>
+                  </NavLink>
+                </li>
+              }
+            </li>
+
             {
               SidebarData.map((item, index) => {
                 return (
@@ -39,6 +61,17 @@ const Sidebar = () => {
                 )
               })
             }
+            <li>
+              {
+                isAdmin ? 
+                <li className="nav-text">
+                <NavLink to='/dashboard' >
+                <MdIcons.MdDashboard />
+                  <span>Dashboard</span>
+                </NavLink>
+                </li> : ''
+              }
+            </li>
           </ul>
 
         </nav>

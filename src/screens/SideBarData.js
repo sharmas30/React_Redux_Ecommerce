@@ -3,6 +3,9 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
+import { getUserInfo } from '../localStorage';
+const { name, isAdmin } = getUserInfo();
+
 export const SidebarData = [
     {
         title: 'Home',
@@ -21,5 +24,5 @@ export const SidebarData = [
         path: '/',
         icon: <FaIcons.FaEnvelopeOpenText />,
         cName: 'nav-text'
-    }
+    },
 ]

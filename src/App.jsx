@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom'
 import './css/App.css'
+import fire from '../src/config/fire';
+import { getDatabase, ref, set, onValue } from "firebase/database";
 import cartScreen from './screens/CartScreen';
+import DashboardScreen from './screens/DashboardScreen';
 import HomeScreen from './screens/HomeScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
@@ -12,8 +15,11 @@ import RegisterScreen from './screens/RegestierScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import Sidebar from './screens/Sidebar';
 import SigninScreen from './screens/SigninScreen';
+import OrderListScreen from './screens/OrderListScreen';
+import { useState } from 'react';
 
 function App() {
+
     return (
         <BrowserRouter>
             <div className="App grid-container">
@@ -40,6 +46,8 @@ function App() {
                         <Route path= '/payment' component={PaymentScreen} ></Route>
                         <Route path= '/placeorder' component={PlaceOrderScreen} ></Route>
                         <Route path= '/productcreate' component={ProductCreateScreen} ></Route>
+                        <Route path= '/dashboard' component={DashboardScreen} ></Route>
+                        <Route path= '/orderlist' component={OrderListScreen} ></Route>
                     </Switch>
                 </main>
 

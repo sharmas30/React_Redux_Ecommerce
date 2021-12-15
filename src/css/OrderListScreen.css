@@ -1,0 +1,125 @@
+/* DASHBOARD START  */
+
+.dashboard-menu {
+    margin-top: 50px;
+    flex: 1 1 20rem;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+.dashboard1 {
+    height: 100%;
+}
+
+.dashboard-menu ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 2rem auto;
+    padding: 10px 0px;
+}
+
+.dashboard-menu span {
+    display: flex;
+    padding: 1rem;
+    padding-left: 2rem;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    margin-left: 0px;
+}
+
+.dashboard-menu a{
+    color: black;
+    text-decoration: none;
+}
+
+.dashboard-menu span:hover {
+    background-color: #c0c0c0;
+    text-decoration: none;
+    color: rgb(22 22 23 / 93%);
+}
+
+.dashboard-menu li.selected span {
+    background-color: #c0c0c0;
+    color: rgb(22 22 23 / 93%);
+}
+
+ /******  Order Details  *****/
+
+/* ADMIN ORDER SCREEN START  */
+
+.orderListContent .container{
+   max-width: 1360px;
+}
+
+.adminOrder2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 11px;
+}
+
+.orderListHeader h2 {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.adminOrder2 div {
+    border: 2px solid white;
+    width: 265px;
+    height: 125px;
+    display: flex;
+    background: #e0e0f0;
+    margin: 12px auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+.adminOrder2 div:hover .hide {
+    visibility: visible!important;
+}
+
+.adminOrder2 ul {
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 0rem;
+}
+
+.adminOrder2 ul li h5 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.adminOrder2 .hide {
+    margin-left: 120px;
+    visibility: hidden;
+}
+
+.adminOrder2 ul li span {
+    font-size: 13px;
+    font-weight: Bold;
+}
+
+.adminOrder2 ul li {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.btn-color-change button {
+    background: rgb(67, 189, 51)!important;
+}
+
+.delivery-btn button {
+    margin: 9px 13px;
+    width: 100%;
+    padding: 3px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 3px 4px 4px gray;
+    font-weight: bold;
+    font-size: 13px;
+    background: rgb(219, 52, 80);
+    color: white;
+}

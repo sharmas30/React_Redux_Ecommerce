@@ -30,9 +30,6 @@ const ProductCreateScreen = () => {
     }
 
     const uploadPictureDetails = (e) => {
-        console.log("HHHHHH___", image)
-        console.log("JJJJJJ___", productDetails )
-        console.log("KKKKKK___", e )
         if(image){
             var d = new Date();
             var n = d.toISOString();
