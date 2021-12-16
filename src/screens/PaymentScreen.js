@@ -20,6 +20,7 @@ const PaymentScreen = () => {
             </div>   
                 <div className='col-lg-12 col-12 paymentCard' >
                     <div className='paymentDetails'>
+                        <form>
                         <ul className='paymentformDetails' onChange={(e)=>getPaymentInfo(e)}>
                             <li>
                                 <h1>Payment Method</h1>
@@ -45,6 +46,7 @@ const PaymentScreen = () => {
                                 <button type='submit' className='paymentContinue' onClick={()=> history.push('/placeorder')} > Continue <i class='fas fa-arrow-right'></i></button>
                             </li>
                         </ul>
+                        </form>
                     </div>
                 </div>
            </div>  

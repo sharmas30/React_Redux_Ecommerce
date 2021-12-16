@@ -8,10 +8,21 @@
 
 .productSizeOption div{
     border: 1px solid rgb(197, 193, 193);
-    width: 40px;
+    width: 45px;
+    height: 27px;
     border-radius: 3px;
     color: white;
+    align-items: center;
+ }
 
+ .testSize span{
+    margin: 5px auto;
+    vertical-align: middle;
+    text-align: center;
+ }
+ 
+ .testSize{
+   margin: 1px 2px;
  }
 
  .productSizeOption div:hover{
@@ -31,7 +42,9 @@
     .productSizeOption div{
         border: 1px solid;
         margin: 2px auto;
-        width: 40px;
+        width: 45px;
+        border-radius: 3px;
+        color: white;
       }
 
 }

@@ -7,6 +7,43 @@
 .order{
     padding: 1rem;
 }
+
+.previewOrder .shipping-status{
+    margin: 20px auto 2px;
+}
+
+.orderSummery h2{
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}
+/* customer css  */
+
+.customer_info{
+    border: 1px solid rgb(104, 102, 102);
+    background-color: #f8f7f7;
+    border-radius: 9px;
+    margin: 18px auto;
+}
+
+.customer_info h4{
+    padding: 15px 10px 10px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.customer_details h5{
+    margin: 1px;
+    padding: 0px 30px;
+    margin-bottom: 13px;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(88, 79, 79);
+}
+
+/* address css  */
+
 .order .address_info{
     margin: 10px auto;
 }
@@ -18,10 +55,11 @@
     border-radius: 9px;
 }
 
-.address_info h2{
+.address_info h4{
     padding: 12px 10px;
     margin: 0px;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .address_details{
@@ -34,7 +72,7 @@
     font-size: 14px;
     padding: 2px 0px;
     line-height: 20px;
-    color: rgb(99, 93, 93);
+    color: rgb(88, 79, 79);
 }
 
 /* PAYMENT CSS  */
@@ -46,10 +84,11 @@
     margin: 18px auto;
 }
 
-.payment_info h2{
-    padding: 15px 10px;
+.payment_info h4{
+    padding: 15px 10px 10px;
     margin: 0px;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .payment_details h5{
@@ -58,7 +97,7 @@
     margin-bottom: 13px;
     font-size: 14px;
     line-height: 20px;
-    color: rgb(99, 93, 93);
+    color: rgb(88, 79, 79);
 }
 
 /* SHOPPING CART CSS  */
@@ -119,7 +158,13 @@
     padding-bottom: 43px;
     padding-left: 1px;
     width: 300px;
-    color: rgb(99, 93, 93);
+    color: rgb(114, 109, 109);
+    font-weight: 700;
+
+}
+
+.shoppingCartDetails h4{
+    font-weight: 700;
 }
 
 .cartProductName h4{
@@ -134,8 +179,9 @@
     text-align: right;
     padding-right: 30px;
     padding-bottom: 90px;
-    color: rgb(99, 93, 93);
+    color: rgb(114, 109, 109);
     width: 110px;
+    font-weight: 700;
 }
 
 .total_price{
@@ -168,6 +214,10 @@
 }
 
 .total_price_row_1 span{
+    padding-left: 2px;
+}
+
+.total_price_1 :nth-child(2) span{
     padding-left: 2px;
 }
 
@@ -211,9 +261,9 @@
         padding: 0px;
     }
     
-    .address_info h2{
+    .address_info h4{
         font-weight: bold;
-        font-size: 18px;
+        font-size: 16px;
         padding: 15px 10px 8px 10px;
     }
     

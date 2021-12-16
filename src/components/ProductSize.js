@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../css/ProductSize.css';
 
 const ProductSize = (props) => {
-    const size = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XL']
+    const size = ['S', 'M', 'L', 'XL', 'XXL', 'XXL']
     const [color, setColor] = useState('');
     console.log('COLOR ', color);
 

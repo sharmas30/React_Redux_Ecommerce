@@ -80,6 +80,13 @@
     font-weight: bold;
   }
 
+  .productSize {
+      font-size: 16px;
+      text-align: left;
+      padding: 7px 16px;
+      color: white;
+  }
+
   .productSizeTitle{
     font-size: 15px;
     text-align: left;
@@ -203,31 +210,32 @@
         margin-top: 5px;
         font-size: 17px;
         text-align: left;
-        padding: 7px 15px;
+        padding: 7px 3px;
       }
 
       .productBrand{
         font-size: 15px;
         text-align: left;
-        padding: 7px 15px;
+        padding: 7px 3px;
+        color: rgb(177, 159, 159);
       }
 
       .productPrice{
         font-size: 19px;
         text-align: left;
-        padding: 7px 15px;
+        padding: 7px 3px;
       }
 
       .productStock{
-        font-size: 15px;
+        font-size: 17px;
         text-align: left;
-        padding: 7px 15px;
+        padding: 7px 3px;
       }
 
       .productSizeTitle{
-        font-size: 15px;
+        font-size: 17px;
         text-align: left;
-        padding: 7px 15px;
+        padding: 7px 3px;
       }
 
       .productAddCartBtn button{

@@ -34,13 +34,13 @@ const Sidebar = () => {
             <li>
               {
                 fname ? 
-                <li className="nav-text">
+                <li className="nav-text sideBarItemsName">
                 <NavLink to='/signin' >
                 <FaIcons.FaUser />
                   <span>{fname}</span>
                 </NavLink>
                 </li> 
-                : <li className="nav-text">
+                : <li className="nav-text sideBarItemsName">
                   <NavLink to='/signin' >
                   <FaIcons.FaUser />
                     <span>Signin</span>
@@ -53,7 +53,7 @@ const Sidebar = () => {
               SidebarData.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
-                    <NavLink to={item.path} >
+                    <NavLink to={item.path} className='sideBarItemsName'>
                       {item.icon}
                       <span>{item.title}</span>
                     </NavLink>
@@ -64,7 +64,7 @@ const Sidebar = () => {
             <li>
               {
                 isAdmin ? 
-                <li className="nav-text">
+                <li className="nav-text sideBarItemsName">
                 <NavLink to='/dashboard' >
                 <MdIcons.MdDashboard />
                   <span>Dashboard</span>

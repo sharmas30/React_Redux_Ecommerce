@@ -30,13 +30,13 @@ const ShippingScreen = () => {
 
     return (
         <>
-        <form>
            <div className=' row '>
            <div className="shipping-status">
                 {checkoutSteps({step1: true, step2: true})}
             </div> 
                 <div className='col-lg-12 col-12 registerCard' >
                     <div className='shippingDetails shippingDetails_1'>
+                    <form>
                         <ul className='shippingformDetails'>
                             <li>
                                 <h1>Shipping Details</h1>
@@ -49,38 +49,38 @@ const ShippingScreen = () => {
 
                             <li>
                                 <label for='mobile'>Mobile No</label>
-                                <input type="tel" name="phone_number" placeholder="9999999999" pattern="[789][0-9]{9}" value={shippingDetails.mobile} onChange={(e)=> setShippingDetails({...shippingDetails, mobile : e.target.value})} required='required' />
+                                <input type="tel" name="phone_number" placeholder="9999999999" pattern="[789][0-9]{9}" value={shippingDetails.mobile} onChange={(e)=> setShippingDetails({...shippingDetails, mobile : e.target.value})} required />
                             </li>
 
                             <li>
                                 <label for='address'>Address</label>
-                                <textarea type='text' name='address' rows="2" value={shippingDetails.address} onChange={(e)=> setShippingDetails({...shippingDetails, address : e.target.value})} required='required' />
+                                <textarea type='text' name='address' rows="2" value={shippingDetails.address} onChange={(e)=> setShippingDetails({...shippingDetails, address : e.target.value})} required />
                             </li>
 
                             <li>
                                 <label for='city'>City</label>
-                                <input type='text' name='City' value={shippingDetails.city} onChange={(e)=> setShippingDetails({...shippingDetails, city : e.target.value})} required='required' />
+                                <input type='text' name='City' value={shippingDetails.city} onChange={(e)=> setShippingDetails({...shippingDetails, city : e.target.value})} required />
                             </li>
 
                             <li>
                                 <label for='email'>Postal Code</label>
-                                <input type="text" name="postalCode" placeholder="xxx xxx" value={shippingDetails.postalCode} onChange={(e)=> setShippingDetails({...shippingDetails, postalCode : e.target.value})} required='required' />
+                                <input type="text" name="postalCode" placeholder="xxx xxx" value={shippingDetails.postalCode} onChange={(e)=> setShippingDetails({...shippingDetails, postalCode : e.target.value})} required />
                             </li>
 
                             <li>
                                 <label for='Country'>Country</label>
-                                <input type='text' name='country' value={shippingDetails.country} onChange={(e)=> setShippingDetails({...shippingDetails, country : e.target.value})} required='required' />
+                                <input type='text' name='country' value={shippingDetails.country} onChange={(e)=> setShippingDetails({...shippingDetails, country : e.target.value})} required />
                             </li>
 
                             <li>
                                 <button type='submit' className='shippingContinue' onClick={saveShippingDetails}>Continue <i class='fas fa-arrow-right'></i></button>
                             </li>
-
                         </ul>
+           </form>
+
                     </div>
                 </div>
            </div>
-           </form>
         </>
     )
 }

@@ -104,7 +104,7 @@ const ProductScreen = () => {
                     </div>
                    
                     <div className='productStock'>
-                       <span>Stock: {`${product.countInStock}` > 0 ? <span className='productInStock'> In Stock</span> : <span className='productOutStock'>Out Of Stock </span>} </span>
+                       <span>Stock : {`${product.countInStock}` > 0 ? <span className='productInStock'> In Stock</span> : <span className='productOutStock'>Out Of Stock </span>} </span>
                     </div>
                    
                     <div className='productSize'>

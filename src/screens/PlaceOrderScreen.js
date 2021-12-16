@@ -29,8 +29,8 @@ const PlaceOrderScreen = () => {
         }
 
         const totalItemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
-        const shippingPrice = totalItemsPrice > 200 ? 0 : 50;
-        const taxPrice = Math.trunc(Math.round(0.12 * totalItemsPrice * 100) / 100);
+        const shippingPrice = totalItemsPrice > 500 ? 0 : 50;
+        const taxPrice = Math.trunc(Math.round(0.02 * totalItemsPrice * 100) / 100);
         const totalPrice = totalItemsPrice + shippingPrice + taxPrice;
         return {
             orderItems,
@@ -89,32 +89,35 @@ const PlaceOrderScreen = () => {
     return (
         <>
         <div className="container content">
-            <div className='row '>
-            <ToastContainer />      
-            <div className="shipping-status">
-                {checkoutSteps({step1: true, step2: true, step3: true, step4: true})}
-            </div> 
+            <div className='row previewOrder'>
+                <ToastContainer />      
+                <div className="shipping-status">
+                    {checkoutSteps({step1: true, step2: true, step3: true, step4: true})}
+                    <div className='orderSummery'>
+                        <h2>Preview Order</h2>
+                    </div>
+                </div> 
                 <div className='col-lg-8 col-12 order'>
-                    <div className="payment_info">
-                        <h2>Customer Details</h2>
-                        <div className='payment_details'>
+                    <div className="customer_info">
+                        <h4>Customer Details</h4>
+                        <div className='customer_details'>
                             <h5>
                                 {shipping.fullName}, {shipping.mobile}
                             </h5>
                         </div>
                     </div>
                     <div className="address_info">
-                        <h2>Shipping Address</h2>
+                        <h4>Shipping Address</h4>
                         <div className='address_details'>
                             <h5>
                             {shipping.address}, {shipping.city}, {shipping.postalCode}, 
-                             {shipping.country}   
+                            {shipping.country}   
                             </h5>
                         </div>
                     </div>
 
                     <div className="payment_info">
-                        <h2>Payment</h2>
+                        <h4>Payment</h4>
                         <div className='payment_details'>
                             <h5>
                                 Payment Method : {payment.paymentMethod}
@@ -165,40 +168,39 @@ const PlaceOrderScreen = () => {
                 </div>
 
                 <div className='col-lg-4 col-12 total_price'>
-                   <h4>Order Summery</h4>
-
-                   <table className="total_price_table">
-                       <tr className='total_price_row_1'>
-                           <td>Items</td>
-                           <td>Rs. <span>{totalItemsPrice}</span></td>
-                       </tr>
-
-                       <tr>
-                           <td>Shipping Charge</td>
-                           <td>Rs. <span>{shippingPrice}</span></td>
-                       </tr>
-
-                       <tr>
-                           <td>Tax</td>
-                           <td>Rs. <span>{taxPrice}</span></td>
-                       </tr>
-
-                       <tr className='horizontalLine'>
-                            <td>
-                                <hr className='line'></hr>
-                            </td>
-                            <td>
-                                <hr className='line'></hr>
-                            </td>
+                    <h4>Order Summery</h4>
+                    <table className="total_price_table">
+                        <tr className='total_price_row_1 total_price_1'>
+                            <td>Items</td>
+                            <td>Rs. <span>{totalItemsPrice}</span></td>
                         </tr>
 
-                        <tr className='final_price'>
-                           <td>Order Total</td>
-                           <td>Rs. <span>{totalPrice}</span></td>
-                       </tr>
-                   </table>
-                   <div className="final_button">
-                           <button type='submit' className='paymentContinue' onClick={placeOrder}>Place Order</button>
+                        <tr className='total_price_1'>
+                            <td>Shipping Charge</td>
+                            <td>Rs. <span>{shippingPrice}</span></td>
+                        </tr>
+
+                        <tr className='total_price_1'>
+                            <td>Tax</td>
+                            <td>Rs. <span>{taxPrice}</span></td>
+                        </tr>
+
+                        <tr className='horizontalLine'>
+                                <td>
+                                    <hr className='line'></hr>
+                                </td>
+                                <td>
+                                    <hr className='line'></hr>
+                                </td>
+                            </tr>
+
+                            <tr className='final_price'>
+                            <td>Order Total</td>
+                            <td>Rs. <span>{totalPrice}</span></td>
+                        </tr>
+                    </table>
+                    <div className="final_button">
+                        <button type='submit' className='paymentContinue' onClick={placeOrder}>Place Order</button>
                     </div>
                 </div>
             </div>   

@@ -72,9 +72,10 @@
 
 .cartQuantity button {
   padding: 2px 4px;
-  border: 0px ;
+  border: 1px solid black ;
   border-radius: 5px;
   margin-left: 3px;
+  box-shadow: 2px 2px 2px rgb(12, 12, 12);
 }
 
 .cartQuantity input {
@@ -83,7 +84,9 @@
   text-align: center;
   width: 37px;
   margin: 0px 5px;
-  border: 0px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px rgb(12, 12, 12);
+
 }
 
 .cartProductPrice{
@@ -127,10 +130,20 @@
   }
 
   .cartProductDetail{
-    padding-left:20px;
+    padding-left: 4px;
     width: 150px;
   }
+  .cartProductDetail li{
+    padding-left: 15px;
+  }
+
   .cartProductPrice{
     width: 100px;
+  }
+  
+  .cartQuantity span {
+    font-weight: bold;
+    color: white;
+    padding-left: 0px;
   }
 }

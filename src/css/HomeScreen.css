@@ -20,6 +20,7 @@
 
 .product_name{
     margin: 4px 0px;
+    height: 22px;
 }
 
 .product_name a{
@@ -29,7 +30,7 @@
 }
 
 .product_price{
-    margin-bottom: 7px;
+    margin: 12px auto;
     font-size: 18px;
     font-weight: bold;
     color: white;
@@ -65,10 +66,10 @@ grid-gap: 1rem;
     }
     .product_name{
         font-size: 14px;
-        height: 32px;
+        height: 30px;
     }
     .product_price{
-        margin-bottom: 7px;
+        margin: 12px auto;
         font-size: 16px;
         font-weight: bold;
     }
