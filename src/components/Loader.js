@@ -4,8 +4,8 @@ import '../css/Loader.css'
 const Loader = () => {
        return (
         <>
-        <div className='loadingFrame'>Loading...
-          <div className="loader">  </div>
+        <div className='parentLoader'>
+          <div className="spinner"></div>
         </div>
         </>
     )

@@ -45,28 +45,28 @@
     font-size: 21px;
     margin-top: 20px;
     text-align: left;
-    padding: 3px 1px;
+    padding: 3px 15px;
     color: white;
   }
 
   .productBrand{
     font-size: 16px;
     text-align: left;
-    padding: 7px 1px;
+    padding: 7px 15px;
     color: white;
   }
 
   .productPrice{
     font-size: 22px;
     text-align: left;
-    padding: 2px 1px;
+    padding: 2px 15px;
     color: white;
   }
 
   .productStock{
     font-size: 16px;
     text-align: left;
-    padding: 7px 1px;
+    padding: 7px 15px;
     color: white;
   }
 
@@ -210,26 +210,26 @@
         margin-top: 5px;
         font-size: 17px;
         text-align: left;
-        padding: 7px 3px;
+        padding: 7px 15px;
       }
 
       .productBrand{
         font-size: 15px;
         text-align: left;
-        padding: 7px 3px;
+        padding: 7px 15px;
         color: rgb(177, 159, 159);
       }
 
       .productPrice{
         font-size: 19px;
         text-align: left;
-        padding: 7px 3px;
+        padding: 7px 15px;
       }
 
       .productStock{
         font-size: 17px;
         text-align: left;
-        padding: 7px 3px;
+        padding: 7px 15px;
       }
 
       .productSizeTitle{
@@ -292,4 +292,5 @@
         margin-left: 0px;
       }
     }
+
   

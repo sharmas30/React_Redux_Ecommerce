@@ -66,15 +66,16 @@
     color: white;
 }
 
+
 .adminOrder2 div {
-    border: 2px solid white;
+    border: 1px solid rgb(5, 5, 5);
     width: 265px;
-    height: 125px;
+    height: 140px;
     display: flex;
     background: #e0e0f0;
     margin: 12px auto;
     border-radius: 8px;
-    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    box-shadow: 2px 2px 2px rgb(24, 23, 23);
 }
 
 .adminOrder2 div:hover .hide {
@@ -85,11 +86,18 @@
     list-style: none;
     padding: 10px;
     margin-bottom: 0rem;
+    width: 100%;
 }
 
-.adminOrder2 ul li h5 {
+.adminOrder2 h3{
+    color: white;
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+.orderListIndex h5 {
     font-weight: bold;
-    text-align: center;
+    font-size: 14px;
 }
 
 .adminOrder2 .hide {
@@ -97,14 +105,51 @@
     visibility: hidden;
 }
 
-.adminOrder2 ul li span {
-    font-size: 13px;
-    font-weight: Bold;
+.orderListName strong {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
 }
+
+.orderListName span {
+    font-size: 14px;
+    color: rgb(53, 49, 49);
+    font-weight: bold;
+}
+
+.orderListDate strong{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+}
+
+.orderListDate span{
+    font-size: 13px;
+    font-weight: bold;
+}
+
 
 .adminOrder2 ul li {
     font-size: 12px;
     font-weight: 600;
+    margin: 7px auto;
+}
+
+.orderListDetailsButton {
+    text-align: center;
+}
+
+.orderListDetailsButton button{
+    margin: 7px 0px;
+    width: 100%;
+    padding: 5px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 3px 4px 4px gray;
+    font-weight: bold;
+    font-size: 13px;
+    background: rgb(219, 52, 80);
+    color: white;
 }
 
 .btn-color-change button {

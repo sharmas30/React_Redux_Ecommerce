@@ -80,7 +80,7 @@ const ProductScreen = () => {
 
                 <div className='productImageSample'>
                     <div>
-                        <img src= {product.image} onClick={()=>setImage(product.image)}/> 
+                        <img src= {product.image} onClick={()=>setImage(product.image)} />                         
                     </div>
                     <div>
                         <img src= {product.image} onClick={()=>setImage(product.image)} />                         

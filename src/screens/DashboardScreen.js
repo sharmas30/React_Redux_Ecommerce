@@ -3,9 +3,25 @@ import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { getUserInfo } from '../localStorage';
 import "../css/Dashboard.css";
+import fire from '../config/fire';
+import { getDatabase, ref, set, onValue } from "firebase/database";
+import { useState } from 'react';
+import { useEffect } from 'react/cjs/react.development';
 
 const DashboardScreen = () => {
     const history = useHistory();
+
+    const [totalOrders, setTotalOrders] = useState([]);
+
+    const db = getDatabase();
+    useEffect(()=>{
+        const userRef = ref(db, 'orders/');
+        onValue(userRef, (snapshot) => {
+            const data = snapshot.val();
+            const allOrderData = Object.values(data);
+            setTotalOrders(allOrderData);
+        })
+    },[])
 
     const menu = (props) =>{
         return(
@@ -30,6 +46,7 @@ const DashboardScreen = () => {
 
     return (
         <>
+        <div className='orderListContent'>
             <div className="container content">
                 <div className='row '>
                     <div className="col-lg-3 col-12 dashboard1">
@@ -45,15 +62,14 @@ const DashboardScreen = () => {
                                         Sales</span>
                                 </div>
                                 <div className="summary-body">                                
-                                {/* Rs ${allOrder.reduce((a, c) => a + c.totalPrice, 0).toFixed(1)} */}
-                                    Rs. 7999
+                                    Rs. {totalOrders.reduce((a, c) => a + c.totalPrice, 0).toFixed(1)}
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            
+            </div>
         </>
     )
 }
