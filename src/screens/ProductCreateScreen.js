@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from 'react/cjs/react.development'
 import "../css/ProductCreateScreen.css"
 import fire from '../config/fire';
-import {ref as sRef, getStorage, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { getDatabase, ref, set, onValue } from "firebase/database";
+import {ref as sRef, getStorage, uploadBytesResumable, uploadString, getDownloadURL} from "firebase/storage";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,7 +14,13 @@ var imageURL;
 
 const ProductCreateScreen = () => {
     const [image, setImage] = useState(null);
-    const [productDetails, setProductDetails] = useState({})
+    const [productDetails, setProductDetails] = useState({
+        productName: '',
+        productBrand: '',
+        productCategory: '',
+        productPrice: '',
+        ProductCount: '',
+    })
     const [progress, setProgress] = useState(0);
     const [progressState, setProgressState] = useState('');
 
@@ -30,12 +36,13 @@ const ProductCreateScreen = () => {
     }
 
     const uploadPictureDetails = (e) => {
+        e.preventDefault();
         if(image){
             var d = new Date();
             var n = d.toISOString();
             var id = n.split(':')[0] + n.split(':')[1] + n.split(':')[2].slice(0, 6)
             var product_id = id.replace(/-/g, '').replace('.', '').replace('T', '');
-
+            debugger
             console.log("SS__1 ", product_id);
 
             const metadata = {
@@ -45,16 +52,17 @@ const ProductCreateScreen = () => {
             const storage = getStorage();
             const storageRef = sRef(storage, 'images/' + product_id + ".png");
 
-            const uploadTask = uploadBytesResumable(storageRef,files[0], metadata)
+            const uploadTask = uploadBytesResumable(storageRef, files[0]);
+            console.log("CCCCCC___ ", uploadTask);
 
             uploadTask.on(
                 "state_changed",
-                function(snapshot) {
-                    prgs =
-                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        if(prgs <= 100)
-                            setProgress(prgs);
-                            setProgressState("Uploading...")
+                (snapshot) => {
+                    prgs = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    if(prgs <= 100){
+                        setProgress(prgs);
+                        setProgressState("Uploading...")
+                    }
                 },
                 (error)=>{
                     toast.error("Please Upload Image Again",
@@ -72,6 +80,7 @@ const ProductCreateScreen = () => {
                             productBrand: productDetails.productBrand,
                             productCategory: productDetails.productCategory,
                             productPrice: productDetails.productPrice,
+                            ProductCount : productDetails.ProductCount,
                             Productimage: imageURL,
                         })
                         toast.success("Product Created Successfully",
@@ -111,7 +120,7 @@ const ProductCreateScreen = () => {
                                     <input type="file" onChange={onImageChange} />
                                 </div>
                                 <li>
-                                    <h4>{progressState} <span> </span>{progress} %</h4>
+                                    <h4>{progressState} <span> </span>{progress.toFixed(1)} %</h4>
                                 </li>
 
 

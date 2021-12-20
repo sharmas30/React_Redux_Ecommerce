@@ -17,6 +17,7 @@ import Sidebar from './screens/Sidebar';
 import SigninScreen from './screens/SigninScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import { useState } from 'react';
+import ProductListScreen from './screens/ProductListScreen';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
                         <Route path= '/productcreate' component={ProductCreateScreen} ></Route>
                         <Route path= '/dashboard' component={DashboardScreen} ></Route>
                         <Route path= '/orderlist' component={OrderListScreen} ></Route>
+                        <Route path= '/productlist' component={ProductListScreen} ></Route>
                     </Switch>
                 </main>
 

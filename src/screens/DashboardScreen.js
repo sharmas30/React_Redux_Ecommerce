@@ -69,7 +69,7 @@ const DashboardScreen = () => {
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         </>
     )
 }
