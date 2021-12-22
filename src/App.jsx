@@ -18,6 +18,7 @@ import SigninScreen from './screens/SigninScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import { useState } from 'react';
 import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
                         <Route path= '/dashboard' component={DashboardScreen} ></Route>
                         <Route path= '/orderlist' component={OrderListScreen} ></Route>
                         <Route path= '/productlist' component={ProductListScreen} ></Route>
+                        <Route path= '/productedit/:id' component={ProductEditScreen} ></Route>
                     </Switch>
                 </main>
 

@@ -44,7 +44,7 @@
     border: 0px;
     border-radius: 5px;
     padding: 3px;
-    box-shadow: 1px 1px 2px 2px rgb(70, 85, 126);
+    box-shadow: 1px 1px 2px 1px rgb(26, 26, 27);
 } 
 
 .cards {
@@ -83,7 +83,7 @@ grid-gap: 1rem;
         border-radius: 5px;
         padding: 5px;
         font-size: 14px;
-        box-shadow: 1px 1px 2px 2px rgb(70, 85, 126);
+        box-shadow: 1px 1px 2px 1px rgb(29, 30, 32);
         /* box-shadow: 1px 1px 2px 2px rgb(61, 84, 134); */
     } 
   }

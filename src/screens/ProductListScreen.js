@@ -76,7 +76,7 @@ const ProductListScreen = () => {
         }
     }
 
-    console.log("DDDDDDDD___ ", allProduct);
+
 
     return (
         <>
@@ -132,7 +132,7 @@ const ProductListScreen = () => {
                                                             <td>{product.productCategory}</td>
                                                             <td>{product.productBrand}</td>
                                                             <td className='adminProduct'>
-                                                                <button className="editButton">Edit</button>
+                                                                <button className="editButton" onClick={()=>history.push(`/productedit/${product.productId}`)}>Edit</button>
                                                                 <button className="deleteButton" onClick={()=>deleteProduct(product.productId)}>Delete</button>
                                                             </td>
                                                         </tr>
