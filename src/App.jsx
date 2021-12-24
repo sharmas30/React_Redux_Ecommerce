@@ -19,6 +19,7 @@ import OrderListScreen from './screens/OrderListScreen';
 import { useState } from 'react';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
+import OrderScreen from './screens/OrderScreen';
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
                         <Route path= '/orderlist' component={OrderListScreen} ></Route>
                         <Route path= '/productlist' component={ProductListScreen} ></Route>
                         <Route path= '/productedit/:id' component={ProductEditScreen} ></Route>
+                        <Route path= '/order/:id' component={OrderScreen} ></Route>
                     </Switch>
                 </main>
 

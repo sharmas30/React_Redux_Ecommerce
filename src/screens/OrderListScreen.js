@@ -6,13 +6,21 @@ import { getUserInfo } from '../localStorage';
 import Loader from '../components/Loader';
 import "../css/OrderListScreen.css";
 import fire from '../config/fire';
-import { getDatabase, ref, set, onValue } from "firebase/database";
-import { connectStorageEmulator } from 'firebase/storage';
+import { getDatabase, ref, set, onValue, remove } from "firebase/database";
+import ReactJsAlert from "reactjs-alert"; 
+
 
 const OrderListScreen = () => {
     const history = useHistory();
     const [allOrders, setOrders] = useState([]);
     const [loadingState, setLoadingState] = useState(true);
+
+    const [productDeleteAlert, setProductDeleteAlert] = useState({
+        type: 'warning',
+        status: false,
+        title: "Please Select Size",
+        quote: "Something went wrong. Please try again!",
+    })
 
     const db = getDatabase();
     useEffect(()=>{
@@ -20,7 +28,6 @@ const OrderListScreen = () => {
         onValue(userRef, (snapshot) => {
             const data = snapshot.val();
             const allOrderData = Object.values(data);
-            console.log("GET USERSSSS__111 ", allOrderData);
             setOrders(allOrderData);
             setLoadingState(false);
         })
@@ -44,11 +51,34 @@ const OrderListScreen = () => {
         )
     }
 
+    const deleteOrder = (orderId)=>{
+        const realtimeRef = ref(db, 'orders/' + orderId);
+
+           if(window.confirm("want to delete this order ?"))
+           {
+            remove(realtimeRef).then(() => {
+                setProductDeleteAlert({
+                    type: 'error',
+                    status: true,
+                    title: "order deleted successfully",
+                })
+            }).catch((error) => {
+                alert("Please try again ", error);
+            });
+        }
+    }
+
     if(!getUserInfo().isAdmin)
         history.push('/');
 
     return (
         <>
+        <ReactJsAlert
+            status={productDeleteAlert.status} // true or false
+            type={productDeleteAlert.type} // success, warning, error, info
+            title={productDeleteAlert.title}
+            Close={() => setProductDeleteAlert({ status: false })}
+            />  
         <div className='orderListContent'>
             <div className="container content">
                 <div className='row '>
@@ -70,7 +100,7 @@ const OrderListScreen = () => {
                                         <ul>
                                             <li className='orderListIndex'>
                                                 <h5>Order No. {index + 1}
-                                                <NavLink to="/"><span><i className='fa fa-remove hide' style={{fontSize:"20px", color:"rgb(219, 52, 80)"}}></i></span></NavLink>
+                                                <span><i className='fa fa-remove hide' style={{fontSize:"20px", color:"rgb(219, 52, 80)"}} onClick={()=>deleteOrder(order.order_id)}></i></span>
                                                 </h5>
                                             </li>
                                             <li className='orderListName'>
@@ -79,8 +109,8 @@ const OrderListScreen = () => {
                                             <li className='orderListDate'>
                                                 <strong>Order Date : </strong> <span>{order.orderDate} </span>
                                             </li>
-                                            <li className='orderListDetailsButton'>
-                                                <button type='submit'>Order Details</button>
+                                            <li className = {`${order.isDelivered ? "orderDelivered" : "orderNotDelivered"}`} >
+                                                <button type='submit' onClick={()=>history.push(`/order/${order.order_id}`)}>Order Details</button>
                                             </li>
                                         </ul>
                                     </div>)

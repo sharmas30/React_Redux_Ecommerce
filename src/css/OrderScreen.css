@@ -1,0 +1,375 @@
+
+.row{
+    margin: 10px auto;
+    padding: 0.9%!important;
+}
+
+.order{
+    padding: 1rem;
+}
+
+.orderId{
+ color: white;
+}
+
+.previewOrder .shipping-status{
+    margin: 20px auto 2px;
+}
+
+.orderSummery h2{
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}
+
+/* customer css  */
+
+.customer_info{
+    border: 1px solid rgb(104, 102, 102);
+    background-color: #f8f7f7;
+    border-radius: 9px;
+    margin: 18px auto;
+}
+
+.customer_info h4{
+    padding: 15px 10px 10px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.customer_details h5{
+    margin: 1px;
+    padding: 0px 30px;
+    margin-bottom: 13px;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(88, 79, 79);
+}
+
+/* address css  */
+
+.order .address_info{
+    margin: 10px auto;
+}
+
+.address_info{
+    border: 2px solid rgb(104, 102, 102);
+    margin: 20px;
+    background-color: #f8f7f7;
+    border-radius: 9px;
+}
+
+.address_info h4{
+    padding: 12px 10px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.address_details{
+    margin: 1px;
+    padding: 0px 30px;
+}
+
+.address_details h5{
+    margin-bottom: 13px;
+    font-size: 14px;
+    padding: 2px 0px;
+    line-height: 20px;
+    color: rgb(88, 79, 79);
+}
+
+.Deliveredsuccess {
+    color: rgb(32, 175, 32);
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.Deliverederror{
+    color: red;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+/* PAYMENT CSS  */
+
+.payment_info{
+    border: 1px solid rgb(104, 102, 102);
+    background-color: #f8f7f7;
+    border-radius: 9px;
+    margin: 18px auto;
+}
+
+.payment_info h4{
+    padding: 15px 10px 10px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.payment_details h5{
+    margin: 1px;
+    padding: 0px 30px;
+    margin-bottom: 13px;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(88, 79, 79);
+}
+
+/* SHOPPING CART CSS  */
+
+.shoppingCart_info{
+    border: 1px solid rgb(104, 102, 102);
+    margin: 20px;
+    background-color: #f8f7f7;
+    border-radius: 9px;
+    margin: 10px auto;
+}
+
+.table_class{
+    width: 100%;
+    height: 20%;
+}
+
+.table_row_1 td{
+    font-weight: bold;
+    font-size: 17px;
+    padding: 15px 10px;
+}
+
+.horizontalLine{
+    height: 10px!important;
+}
+.horizontalLine hr{
+    border: 0.7px solid rgb(206, 200, 200);
+}
+
+.horizontalLine td{
+    padding: 0px;
+}
+
+.table_row_1 td:nth-child(1){
+    width: 130px;
+}
+
+.table_row_1 td:nth-child(3){
+    text-align: right;
+    padding-right: 40px;
+}
+
+.table_row_3 td:nth-child(1){
+    width: 100px!important;
+}
+
+.cartImage{
+    padding: 12px;
+}
+
+.cartImage img{
+    box-shadow: 1px 1px 1px 1px rgb(209, 204, 204);
+
+}
+
+.shoppingCartDetails{
+    padding-bottom: 43px;
+    padding-left: 1px;
+    width: 300px;
+    color: rgb(114, 109, 109);
+    font-weight: 700;
+
+}
+
+.shoppingCartDetails h4{
+    font-weight: 700;
+}
+
+.cartProductName h4{
+    font-size: 16px;
+}
+
+.cartProductQty{
+    font-size: 15px;
+}
+
+.shippingcartProductPrice{
+    text-align: right;
+    padding-right: 30px;
+    padding-bottom: 90px;
+    color: rgb(114, 109, 109);
+    width: 110px;
+    font-weight: 700;
+}
+
+.total_price{
+    border: 1px solid rgb(104, 102, 102);
+    border-radius: 9px;
+    background-color: #f8f7f7;
+    height: 325px;
+    margin: 46px auto;
+}
+
+.total_price h4{
+    text-align: center;
+    margin: 18px auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.total_price_table{
+    width: 100%;
+    height: 20%;
+}
+
+.total_price_table tr td:nth-child(1){
+    width: 70%;
+}
+
+.total_price_table tr{
+    height: 40px;
+    font-weight: 400;
+}
+
+.total_price_row_1 span{
+    padding-left: 2px;
+}
+
+.total_price_1 :nth-child(2) span{
+    padding-left: 2px;
+}
+
+.final_price td{
+    font-weight: bold;
+}
+
+.final_button button{
+    width: 100%;
+    padding: 8px;
+    border-radius: 12px;
+    background: #19344e;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0px;
+    margin-top: 19px;
+    text-shadow: 1px 1px 1px rgb(158, 153, 153);
+    box-shadow: 2px 2px 2px 2px rgb(177, 172, 172);
+}
+
+.paymentContinue{
+    background-color: #19344e;
+    color: white;
+    width: 100%;
+}
+
+.deliveredOrderHide{
+
+}
+
+/* ************************************* */
+
+@media (max-width: 720px) {
+
+    .container{
+        padding: 0px;
+    }
+
+    .row{
+        padding: 0px 2.9%!important;
+    }
+
+    .order{
+        padding: 0px;
+        margin-top: 15px;
+    }
+    
+    .address_info h4{
+        font-weight: bold;
+        font-size: 16px;
+        padding: 15px 10px 8px 10px;
+    }
+    
+    .address_details{
+        padding: 0px 30px;
+    }
+    
+    .address_details h5{
+        margin-bottom: 13px;
+        font-size: 15px;
+        line-height: 21px;
+        color: rgb(99, 93, 93);
+    }
+
+    /* PAYMENT CSS  */
+
+    .payment_info h2{
+        padding: 15px 10px 8px 10px;
+    }    
+
+    .payment_details h5{
+        margin: 1px;
+        padding: 0px 30px;
+        margin-bottom: 13px;
+        font-size: 15px;
+        line-height: 20px;
+        color: rgb(99, 93, 93);
+    }
+
+    /* SHOPPING CART CSS  */
+
+.shoppingCart_info{
+    border: 1px solid rgb(192, 189, 189);
+    margin: 20px;
+    background-color: #f8f7f7;
+    border-radius: 9px;
+    margin: 10px auto;
+}
+
+.table_class{
+    width: 100%;
+    height: 20%;
+}
+
+.table_row_1 td{
+    font-weight: bold;
+    font-size: 17px;
+    padding: 15px 10px;
+}
+
+.table_row_1 td:nth-child(3){
+    text-align: right;
+    padding-right: 15px;
+}
+
+.cartImage{
+    padding: 2px 10px 10px 10px;
+}
+
+.cartImage img{
+    width: 70px;
+    height: 90px;
+}
+
+.shoppingCartDetails{
+    padding-bottom: 25px;
+    padding-left: 1px;
+    width: 195px;
+}
+
+.shoppingCartDetails h4{
+    font-size: 14px;
+}
+
+.shoppingCartDetails span{
+    font-size: 14px;
+}
+
+.shippingcartProductPrice{
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 80px;
+    font-size: 14px;
+    color: rgb(99, 93, 93);
+}
+}

@@ -28,7 +28,6 @@ const ProductEditScreen = () => {
     const param = useParams()
 
     useEffect(()=>{
-        console.log("TTTTTTPPPP___", param.id);
         const db = getDatabase();
         const storage = getStorage();
         var userRef = ref(db, `allProducts/${param.id}`);

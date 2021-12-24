@@ -1,110 +1,74 @@
 import React from 'react'
-import '../css/PlaceOrderScreen.css'
+import '../css/OrderScreen.css'
 import { cleanCart, getCartItems, getPayment, getShippingInfo, getUserInfo } from '../localStorage'
 import { checkoutSteps } from '../utils'
 import { useHistory } from 'react-router';
+import { useParams } from 'react-router-dom';
 import fire from '../config/fire';
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue, update } from "firebase/database";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import Loader from '../components/Loader';
 
-const PlaceOrderScreen = () => {
+const OrderScreen = () => {
 
+    const [receiveOrder, setReceiveOrder] = useState({})
+    const [loadingState, setLoadingState] = useState(true);
     const history = useHistory();
+    const param = useParams()
 
-    const convertCartToOrder = () => {
-        const orderItems = getCartItems();
-        if(orderItems.length === 0){
-            history.push('/cart')
-        }
-
-        const shipping = getShippingInfo();
-        if(shipping.length === 0){
-            history.push('/shipping')
-        }
-
-        const payment = getPayment();
-        if (!payment.paymentMethod) {
-            document.location.hash = '/payment';
-        }
-
-        const totalItemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
-        const shippingPrice = totalItemsPrice > 500 ? 0 : 50;
-        const taxPrice = Math.trunc(Math.round(0.02 * totalItemsPrice * 100) / 100);
-        const totalPrice = totalItemsPrice + shippingPrice + taxPrice;
-        return {
-            orderItems,
-            shipping,
-            payment,
-            totalItemsPrice,
-            shippingPrice,
-            taxPrice,
-            totalPrice
-        };
-    }
-
-    const placeOrder = () => {
-        const order = convertCartToOrder();
-        const userInfo = getUserInfo()
-        var d = new Date();
-        var order_date = d.toLocaleString();
-        var n = d.toISOString();
-        var id = n.split(':')[0] + n.split(':')[1] + n.split(':')[2].slice(0, 6)
-        var order_id = id.replace(/-/g, '').replace('.', '').replace('T', '');
-
-        const db = getDatabase();
-        set(ref(db, 'orders/' + order_id), {
-            orderItems: order.orderItems,
-            shipping: order.shipping,
-            payment: order.payment,
-            totalItemsPrice: order.totalItemsPrice,
-            shippingPrice: order.shippingPrice,
-            taxPrice: order.taxPrice,
-            totalPrice: order.totalPrice,
-            orderDate: order_date,
-            order_id: order_id,
-            isDelivered: false,
-            deliveredAt: '',
-            user_id: userInfo.userId,
-            userName: `${userInfo.fname}  ${userInfo.lname}`,
-            uphone_number: userInfo.mobile,
+    const db = getDatabase();
+    debugger
+    useEffect(()=>{
+        var userRef = ref(db, `orders/${param.id}`);
+        onValue(userRef, (snapshot) => {
+            var data = snapshot.val();
+            setReceiveOrder(data);
+            setLoadingState(false);
+            placeOrderNotification()
         })
+    },[])
 
-        toast.success("Order Placed Successfully...!",
-        {position: toast.POSITION.TOP_CENTER});
-
-        cleanCart();
-
-        history.push(`/order/${order_id}`);
+    const placeOrderNotification = () =>{
+        if(!isAdmin) {
+            toast.success("Order Placed Successfully...!",
+            {position: toast.POSITION.TOP_CENTER})
+        }
     }
 
-    const {
-        orderItems,
-        shipping,
-        payment,
-        totalItemsPrice,
-        shippingPrice,
-        taxPrice,
-        totalPrice,
-    } = convertCartToOrder();
+    const deliverOrder = (orderId) => {
+        var d = new Date();
+        var deliverDate = d.toLocaleString();
+        update(ref(db, 'orders/' + orderId), {
+            deliveredAt: deliverDate,
+            isDelivered: true,
+        })
+    }
+
+    const { isAdmin } = getUserInfo();
+
+    console.log('GGGGGG___', receiveOrder);
 
     return (
         <>
         <div className="container content">
-            <div className='row previewOrder'>
-                <ToastContainer />      
-                <div className="shipping-status">
-                    {checkoutSteps({step1: true, step2: true, step3: true, step4: true})}
-                    <div className='orderSummery'>
-                        <h2>Preview Order</h2>
-                    </div>
+        {
+            loadingState ? <Loader />: 
+            <>
+                <div className='orderSummery'>
+                    <h2>Your Order</h2>
                 </div> 
+                <div className='row previewOrder'>
+                <ToastContainer />      
                 <div className='col-lg-8 col-12 order'>
+                    <span className='orderId'> Order Id : {receiveOrder.order_id}</span>
                     <div className="customer_info">
                         <h4>Customer Details</h4>
                         <div className='customer_details'>
                             <h5>
-                                {shipping.fullName}, {shipping.mobile}
+                                {receiveOrder.shipping.fullName}, {receiveOrder.shipping.mobile}
                             </h5>
                         </div>
                     </div>
@@ -112,9 +76,16 @@ const PlaceOrderScreen = () => {
                         <h4>Shipping Address</h4>
                         <div className='address_details'>
                             <h5>
-                            {shipping.address}, {shipping.city}, {shipping.postalCode}, 
-                            {shipping.country}   
+                            {receiveOrder.shipping.address}, {receiveOrder.shipping.city}, {receiveOrder.shipping.country},
+                            {receiveOrder.shipping.postalCode}  
                             </h5>
+
+                            {
+                            receiveOrder.isDelivered
+                            ? <div className="Deliveredsuccess">Delivered at {receiveOrder.deliveredAt}</div>
+                            : <div className="Deliverederror">Not Delivered</div>
+                    }
+
                         </div>
                     </div>
 
@@ -122,7 +93,7 @@ const PlaceOrderScreen = () => {
                         <h4>Payment</h4>
                         <div className='payment_details'>
                             <h5>
-                                Payment Method : {payment.paymentMethod}
+                                Payment Method : {receiveOrder.payment.paymentMethod}
                             </h5>
                         </div>
                     </div>
@@ -135,7 +106,7 @@ const PlaceOrderScreen = () => {
                                 <td>Price</td>
                             </tr>
 
-                            {orderItems.map((item) => 
+                            {receiveOrder.orderItems.map((item) => 
                             <>
                             <tr className='horizontalLine'>
                                 <td>
@@ -174,17 +145,17 @@ const PlaceOrderScreen = () => {
                     <table className="total_price_table">
                         <tr className='total_price_row_1 total_price_1'>
                             <td>Items</td>
-                            <td>Rs. <span>{totalItemsPrice}</span></td>
+                            <td>Rs. <span>{receiveOrder.totalItemsPrice}</span></td>
                         </tr>
 
                         <tr className='total_price_1'>
                             <td>Shipping Charge</td>
-                            <td>Rs. <span>{shippingPrice}</span></td>
+                            <td>Rs. <span>{receiveOrder.shippingPrice}</span></td>
                         </tr>
 
                         <tr className='total_price_1'>
                             <td>Tax</td>
-                            <td>Rs. <span>{taxPrice}</span></td>
+                            <td>Rs. <span>{receiveOrder.taxPrice}</span></td>
                         </tr>
 
                         <tr className='horizontalLine'>
@@ -198,18 +169,26 @@ const PlaceOrderScreen = () => {
 
                             <tr className='final_price'>
                             <td>Order Total</td>
-                            <td>Rs. <span>{totalPrice}</span></td>
+                            <td>Rs. <span>{receiveOrder.totalPrice}</span></td>
                         </tr>
                     </table>
                     <div className="final_button">
-                        <button type='submit' className='paymentContinue' onClick={placeOrder}>Place Order</button>
+                        {
+                            isAdmin && !receiveOrder.isDelivered
+                            ? <button type='submit' className='paymentContinue' onClick={()=>deliverOrder(receiveOrder.order_id)}>Delivere Order</button>
+                            :""
+                        }
+                        
                     </div>
                 </div>
             </div>   
+            </>
+        }
+            
         </div>
 
         </>
     )
 }
 
-export default PlaceOrderScreen
+export default OrderScreen

@@ -32,7 +32,6 @@ const ProductListScreen = () => {
             allProductData = data ? allProductData = Object.values(data) : [] 
             console.log("GET Products__222 ", allProductData);
             setAllProduct(allProductData);
-            // setLoadingProductState(false);
         })
     },[])
 
@@ -97,9 +96,9 @@ const ProductListScreen = () => {
                             <h2>Prodeuct List</h2>
                             <button className='primary createProductButton' onClick={()=>history.push("/productcreate")}> Create Product</button>
                             <div className='productList'>
-                                <table className='productListTable' style={{width:"100%", height:"20%"}}>
+                                <table className='' style={{width:"100%", height:"20%"}}>
                                     <thead>
-                                        <tr>
+                                        <tr className='productListTable'>
                                             <th>Sr. No</th>
                                             <th>PRODUCT ID</th>
                                             <th>NAME</th>
@@ -109,6 +108,30 @@ const ProductListScreen = () => {
                                             <th>ACTION</th>
                                         </tr>
                                     </thead>
+
+                                    <tr className="cartHorizLine">
+                                        <td>
+                                            <span className='line'></span>
+                                        </td>
+                                        <td>
+                                            <span className='line'></span>
+                                        </td>
+                                        <td>
+                                            <span className='line'></span>
+                                        </td>
+                                        <td>
+                                            <span className='line'></span>
+                                        </td>
+                                        <td>
+                                            <span className='line'></span>
+                                        </td>
+                                        <td>
+                                            <span className='line'></span>
+                                        </td>
+                                        <td>
+                                            <span className='line'></span>
+                                        </td>
+                                    </tr>
 
                                     <tbody className='productListBody'>
                                         {
