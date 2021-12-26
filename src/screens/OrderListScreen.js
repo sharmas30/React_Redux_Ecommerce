@@ -28,7 +28,7 @@ const OrderListScreen = () => {
         onValue(userRef, (snapshot) => {
             const data = snapshot.val();
             const allOrderData = Object.values(data);
-            setOrders(allOrderData);
+            setOrders(allOrderData.reverse());
             setLoadingState(false);
         })
     },[])
@@ -99,7 +99,7 @@ const OrderListScreen = () => {
                                     <div key={index}>
                                         <ul>
                                             <li className='orderListIndex'>
-                                                <h5>Order No. {index + 1}
+                                                <h5>Order No. {(allOrders.length) - index}
                                                 <span><i className='fa fa-remove hide' style={{fontSize:"20px", color:"rgb(219, 52, 80)"}} onClick={()=>deleteOrder(order.order_id)}></i></span>
                                                 </h5>
                                             </li>

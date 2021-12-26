@@ -1,0 +1,119 @@
+.userProfileDetails{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.userformDetails{
+    display: flex;
+    flex-direction: column;
+    margin: 60px auto;
+    width: 32rem;
+    padding: 2rem;
+    border: 0.1rem #c0c0c0 solid;
+    border-radius: 0.5rem;
+    list-style-type: none;
+    background-color: #ece4e4;
+    color: black;
+    opacity: 0.8;
+    box-shadow: 2px 2px 2px 2px #212325;
+}
+
+.userformDetails li h1{
+    text-align: center;
+    color: black
+}
+
+.userformDetails li{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.userformDetails li label {
+    font-size: 15px;
+    font-weight: 500;
+    color: black
+}
+
+.userformDetails li input{
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.userformDetails li button {
+    padding: 8px;
+    border-radius: 12px;
+    background: #19344e;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0px;
+    text-shadow: 1px 2px 1px rgb(158, 153, 153);
+    box-shadow: 2px 3px 3px 2px rgb(163, 159, 159);
+
+}
+
+/****** ORDER HISTROY ******/
+
+.orderHistoryListParent h2{
+    color: white;
+    text-align: center;
+}
+
+.orderHistoryList{
+    color: white;
+    margin: 35px auto;
+}
+
+.orderHistoryListTable{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.orderHistoryListTable th {
+    border-right: 0.5px solid;
+    border-left: 0.5px solid;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.orderHistoryListTable tr{
+    height: 40px;
+    text-align: center;
+}
+
+.porderHistoryListTable tbody>tr:nth-child(odd){
+    background-color: #121731;
+}
+
+.orderHistoryListBody tr{
+    height: 45px;
+}
+
+.orderHistoryListBody td{
+    border-right: 0.5px solid;
+    border-left: 0.5px solid;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.orderHistoryListLoader h2{
+    font-weight: bold;
+    animation: blinker 1s linear infinite;
+    color: rgb(41, 161, 51);
+}
+
+@media (max-width: 720px) {
+
+    .orderHistoryListParent{
+        padding: 10px 0px;
+    }
+
+    .orderHistoryListBody tr{
+        height: 55px;
+    }
+
+}

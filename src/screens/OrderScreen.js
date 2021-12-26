@@ -140,7 +140,7 @@ const OrderScreen = () => {
 
                 </div>
 
-                <div className='col-lg-4 col-12 total_price'>
+                <div className = {`${ isAdmin ? receiveOrder.isDelivered ? "col-lg-4 col-12 total_price_not totalPrice_1" : "col-lg-4 col-12 total_price totalPrice_1" : "col-lg-4 col-12 total_price_not totalPrice_1" }`} >
                     <h4>Order Summery</h4>
                     <table className="total_price_table">
                         <tr className='total_price_row_1 total_price_1'>

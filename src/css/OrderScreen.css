@@ -202,12 +202,14 @@
     font-weight: 700;
 }
 
+
+ /**** same content but but class different START  ****/
+
 .total_price{
     border: 1px solid rgb(104, 102, 102);
     border-radius: 9px;
     background-color: #f8f7f7;
     height: 325px;
-    margin: 46px auto;
 }
 
 .total_price h4{
@@ -216,6 +218,26 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+.total_price_not{
+    border: 1px solid rgb(104, 102, 102);
+    border-radius: 9px;
+    background-color: #f8f7f7;
+    height: 260px;
+}
+
+.total_price_not h4 {
+    text-align: center;
+    margin: 18px auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.totalPrice_1{
+    margin: 46px auto;
+}
+
+ /**** same content but but class different  END ****/
 
 .total_price_table{
     width: 100%;
@@ -261,10 +283,6 @@
     background-color: #19344e;
     color: white;
     width: 100%;
-}
-
-.deliveredOrderHide{
-
 }
 
 /* ************************************* */

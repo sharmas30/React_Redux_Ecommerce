@@ -7,9 +7,10 @@ import { SidebarData } from './SideBarData';
 import "../css/Navbar.css";
 import {IconContext} from 'react-icons'
 import { getUserInfo } from '../localStorage';
-const { fname, isAdmin } = getUserInfo();
+import { useEffect } from 'react';
 
 const Sidebar = () => {
+  const { fname, isAdmin } = getUserInfo();
 
   const [sidebar, setSidebar] = useState(false);
 
@@ -35,7 +36,7 @@ const Sidebar = () => {
               {
                 fname ? 
                 <li className="nav-text sideBarItemsName">
-                <NavLink to='/signin' >
+                <NavLink to='/userprofile' >
                 <FaIcons.FaUser />
                   <span>{fname}</span>
                 </NavLink>
