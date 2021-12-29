@@ -1,0 +1,118 @@
+
+.cnt-heading {
+    margin: 25px auto;
+}
+
+.contactHeading h2{
+    color: white;
+}
+
+.form-group {
+    margin: 15px auto;
+}
+
+.form-group input,
+.form-group textarea {
+    height: 35px;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
+.form-button button {
+    border: 1px solid rgb(22 22 23 / 93%);
+    background: rgb(22 22 23 / 93%);
+    color: white;
+    border-radius: 10px;
+    margin: 15px 5px;
+    padding: 7px auto;
+    width: 250px;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 1px 2px 2px 1px  rgb(31, 63, 90);
+    /* background: #364988;
+    box-shadow: 0 0 5px #364988, 0 0 25px #364988, 0 0 50px #364988, 0 0 200px #364988  */
+}
+
+.form-button button:hover {
+    color: white;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+
+/* CONTACT US END  */
+
+
+/* FOOTER START  */
+
+.footer {
+    /* background: linear-gradient(159deg, rgb(194, 29, 29) 55%, #fff 0%); */
+    padding: 15px 0px 0px 0px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    color: white;
+    /* background-color: rgb(22 22 23 / 93%); */
+}
+
+.footer-bg i {
+    margin: 15px 0px;
+    color: white;
+}
+
+.footer-div {
+    line-height: 0.7;
+}
+
+.footer-bg {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer-bg hr {
+    margin: 25px auto;
+}
+
+.footer-copyright p {
+    font-size: 11px;
+}
+
+.page-up a {
+    color: black;
+}
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 27%;
+    position: relative;
+    height: 3;
+    box-shadow: 0 2px 4px 0 gray;
+    border: 2px solid gray;
+    margin: 20px auto;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    margin: auto;
+}
+
+.googleMaponContact h4{
+    color: white;
+    font-weight: bold;
+}
+
+
+/* FOOTER END  */
+
+@media (max-width: 720px) {
+    .map-responsive {
+        height: 150px;
+    }
+}

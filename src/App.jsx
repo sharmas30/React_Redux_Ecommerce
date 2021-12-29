@@ -21,6 +21,7 @@ import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderScreen from './screens/OrderScreen';
 import UserProfileScreen from './screens/UserProfilrScreen';
+import ContactScreen from './screens/ContactScreen';
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
                         <Route path= '/productedit/:id' component={ProductEditScreen} ></Route>
                         <Route path= '/order/:id' component={OrderScreen} ></Route>
                         <Route path= '/userprofile' component={UserProfileScreen} ></Route>
+                        <Route path= '/contact' component={ContactScreen} ></Route>
                     </Switch>
                 </main>
 
