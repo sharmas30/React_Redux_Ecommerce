@@ -15,13 +15,13 @@ export const SidebarData = [
     },
     {
         title: 'About',
-        path: '/',
+        path: '/aboutus',
         icon: <IoIcons.IoMdPeople />,
         cName: 'nav-text'
     },
     {
         title: 'Contact',
-        path: 'contact',
+        path: '/contact',
         icon: <FaIcons.FaEnvelopeOpenText />,
         cName: 'nav-text'
     },

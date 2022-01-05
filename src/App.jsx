@@ -22,6 +22,7 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderScreen from './screens/OrderScreen';
 import UserProfileScreen from './screens/UserProfilrScreen';
 import ContactScreen from './screens/ContactScreen';
+import AboutUsScreen from './screens/AboutUsScreen';
 
 function App() {
 
@@ -58,6 +59,8 @@ function App() {
                         <Route path= '/order/:id' component={OrderScreen} ></Route>
                         <Route path= '/userprofile' component={UserProfileScreen} ></Route>
                         <Route path= '/contact' component={ContactScreen} ></Route>
+                        <Route path= '/aboutus' component={AboutUsScreen} ></Route>
+
                     </Switch>
                 </main>
 
