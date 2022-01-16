@@ -8,6 +8,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getUserInfo } from '../localStorage';
+import { useHistory } from 'react-router-dom';
 
 var files = [];
 var imgFile;
@@ -26,6 +28,7 @@ const ProductEditScreen = () => {
     const [progress, setProgress] = useState(0);
     const [progressState, setProgressState] = useState('');
     const param = useParams()
+    const history = useHistory();
 
     useEffect(()=>{
         const db = getDatabase();
@@ -108,6 +111,9 @@ const ProductEditScreen = () => {
             {position: toast.POSITION.TOP_CENTER});
         }
     }       
+
+    if(!getUserInfo().isAdmin)
+        history.push('/');
 
     return (
         <>

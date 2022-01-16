@@ -20,7 +20,7 @@
     background-color: white;
     color: black;
     opacity: 1;
-    box-shadow: 1px 3px 2px 2px #2a608f;
+    box-shadow: 1px 3px 2px 2px #272a2c;
 }
 
 .productCreateformDetails li h1{
@@ -49,13 +49,13 @@
 
 .imageFile{
     width: 92px;
-    height: 94px;
-    border: 1px solid rgb(73, 71, 71);
+    height: 119px;
+    border: 1px solid rgb(124, 119, 119);
 }
 
 .imageFile img{
     width: 90px;
-    height: 95px;
+    height: 118px;
 }
 
 .chooseFile{
@@ -73,6 +73,22 @@
     text-shadow: 1px 1px 1px rgb(158, 153, 153);
     box-shadow: 2px 3px 3px 2px rgb(163, 159, 159);
 
+}
+
+.uploadSampleImageProductCreate button{
+    font-size: 16px!important;
+}
+
+.sampleImageParentBtn span{
+    animation: blinker 2.2s linear infinite;
+    color: white;
+}
+
+.sampleImageStatusModal h3{
+    font-size: 15px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
 }
 
 .shippingContinue i{

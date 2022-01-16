@@ -54,7 +54,6 @@ const AboutUsScreen = () => {
                         </div>
 
                         <div className="col-lg-9 col-12 dashboard2">
-                            <h2>Dashboard</h2>
                         </div>
                     </div>
                 </div>

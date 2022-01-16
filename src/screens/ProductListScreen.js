@@ -7,11 +7,14 @@ import { useEffect } from 'react';
 import Loader from '../components/Loader';
 import { deleteObject, ref as sRef, getStorage } from 'firebase/storage';
 import ReactJsAlert from "reactjs-alert"; 
+import LoaderComponent from './LoaderComponent';
+import { getUserInfo } from '../localStorage';
 
 
 const ProductListScreen = () => {
 
     const [allProduct, setAllProduct] = useState([])
+    const [deleteLoader, setDeleteLoader] = useState(false)
     const history = useHistory();
 
     const [productDeleteAlert, setProductDeleteAlert] = useState({
@@ -54,11 +57,20 @@ const ProductListScreen = () => {
     }
 
     const deleteProduct = (id) =>{
-        const storageRef = sRef(storage, 'images/' + id + ".png");
-        const realtimeRef = ref(db, 'allProducts/' + id);
+        setDeleteLoader(true);
+        if(window.confirm("want to delete it ?"))
+        {
+            for(var i=1; i<4; i++){
+                const storageRef = sRef(storage, 'images/' + id +"_"+ i + ".png");
+                deleteObject(storageRef).then(() => {
+                    
+                }).catch((error) => {
+                    // alert("Please try again__!");
+                });
+            }
 
-           if(window.confirm("want to delete it ?"))
-           {
+            const storageRef = sRef(storage, 'images/' + id + ".png");
+            const realtimeRef = ref(db, 'allProducts/' + id);
             deleteObject(storageRef).then(() => {
                 remove(realtimeRef).then(() => {
                     setProductDeleteAlert({
@@ -66,6 +78,7 @@ const ProductListScreen = () => {
                         status: true,
                         title: "Product deleted successfully",
                     })
+                    setDeleteLoader(false);
                 }).catch((error) => {
                     alert("Please try again");
                 });
@@ -75,27 +88,29 @@ const ProductListScreen = () => {
         }
     }
 
-
+    if(!getUserInfo().isAdmin)
+        history.push('/');
 
     return (
         <>
-        <ReactJsAlert
-            status={productDeleteAlert.status} // true or false
-            type={productDeleteAlert.type} // success, warning, error, info
-            title={productDeleteAlert.title}
-            Close={() => setProductDeleteAlert({ status: false })}
-            />    
+            <ReactJsAlert
+                status={productDeleteAlert.status} // true or false
+                type={productDeleteAlert.type} // success, warning, error, info
+                title={productDeleteAlert.title}
+                Close={() => setProductDeleteAlert({ status: false })}
+            />  
+            
             <div className='orderListContent productListContainer'>
                 <div className="container content">
                     <div className='row '>
                         <div className="col-lg-3 col-12 dashboard1">
                             {menu({ selected: 'productsList' })}
                         </div>
-
                         <div className="col-lg-9 col-12 productListParent">
                             <h2>Prodeuct List</h2>
                             <button className='primary createProductButton' onClick={()=>history.push("/productcreate")}> Create Product</button>
                             <div className='productList'>
+                            { deleteLoader ? <LoaderComponent /> : "" }
                                 <table className='' style={{width:"100%", height:"20%"}}>
                                     <thead>
                                         <tr className='productListTable'>
@@ -165,7 +180,6 @@ const ProductListScreen = () => {
                                         }
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>

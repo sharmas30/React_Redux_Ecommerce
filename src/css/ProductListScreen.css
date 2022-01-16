@@ -60,7 +60,8 @@
     background: rgba(12, 12, 12, 0.93);
     border-radius: 5px;
     padding: 0.9rem;
-    border: 0.1rem #5c5a5a solid;
+    /* border: 0.1rem #5c5a5a solid; */
+    box-shadow: 1px 1px 2px 2px rgb(112, 111, 111);
 }
 
 .productList{
