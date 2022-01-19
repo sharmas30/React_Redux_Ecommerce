@@ -23,6 +23,7 @@ import OrderScreen from './screens/OrderScreen';
 import UserProfileScreen from './screens/UserProfilrScreen';
 import ContactScreen from './screens/ContactScreen';
 import AboutUsScreen from './screens/AboutUsScreen';
+import MainPageScreen from './screens/MainPageScreen';
 
 function App() {
 
@@ -43,7 +44,8 @@ function App() {
 
                 <main className='mainContent'>
                     <Switch>
-                        <Route path= '/' component = {HomeScreen} exact></Route>
+                        <Route path= '/' component = {MainPageScreen} exact></Route>
+                        <Route path= '/home' component = {HomeScreen} exact></Route>
                         <Route path= '/product/:id' component={ProductScreen} ></Route>
                         <Route path= '/cart' component={cartScreen} ></Route>
                         <Route path= '/signin' component={SigninScreen} ></Route>

@@ -37,6 +37,17 @@
   border: 0.2px solid white;
 }
 
+.cartEmpatData h3{
+  color: rgb(211, 49, 49);
+  margin: 1px 10px;
+  /* animation: blinker 1s linear infinite; */
+}
+
+.cartEmpatData span{
+  color: white!important;
+  margin: 0px 10px;
+}
+
 .cartHorizLine td{
   padding: 0px;
 }
