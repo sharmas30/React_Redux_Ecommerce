@@ -8,17 +8,17 @@ const CartScreen = () => {
     const history = useHistory();
 
     const quantitySelect = (qty, product) => {
-        const item = cartProducts.find((x) => x._id == product._id)
+        const item = cartProducts.find((x) => x.productId == product.productId)
         sendItemToCart({...item, qty: Number(qty.target.value)}, true)
     }
 
     const sendItemToCart = (item, forceUpdate = false) => {
         let cartItems = getCartItems();
-            const existItem = cartItems.find((x) => x._id === item._id );
+            const existItem = cartItems.find((x) => x.productId === item.productId );
             if(existItem){
                 if (forceUpdate) {
                     cartItems = cartItems.map((x) =>
-                        x._id === existItem._id ? item : x
+                        x.productId === existItem.productId ? item : x
                     );
                 }
             }
@@ -30,7 +30,7 @@ const CartScreen = () => {
     }
 
     const removeFromCart = (item) => {
-       setCartItems(getCartItems().filter(x => x._id !== item._id))
+       setCartItems(getCartItems().filter(x => x.productId !== item.productId))
        history.push('/cart');
     }
 
@@ -61,12 +61,12 @@ const CartScreen = () => {
                             </tr>
                             <tr>
                                 <td className='cartImage'>
-                                    <img src= {product.image}/> 
+                                    <img src= {product.Productimage}/> 
                                 </td>
                                 <td className='cartQuantityDetails'>
                                     <ul className="cartProductDetail">
                                         <li>
-                                            <h2>{product.name}</h2>
+                                            <h2>{product.productName}</h2>
                                         </li>
                                         <div className="cartQuantity">
                                             <span> Qty : </span> 
@@ -78,7 +78,7 @@ const CartScreen = () => {
                                     </ul>
                                 </td>
                                 <td className='cartProductPrice'>
-                                    Rs. {product.price}
+                                    Rs. {product.productPrice}
                                 </td>
                             </tr>                     
                         </>
@@ -87,7 +87,7 @@ const CartScreen = () => {
                 </div>
                 <div className='col-lg-4 col-12 cartLeft'>
                     <div className='subTotal'>Subtotal ({cartProducts.reduce((a, c) => a + c.qty, 0)} items)
-                    : Rs. {cartProducts.reduce((a, c) => a + c.qty * c.price, 0)}</div>
+                    : Rs. {cartProducts.reduce((a, c) => a + c.qty * c.productPrice, 0)}</div>
                     <button className='proceedToCheckout' onClick={()=>history.push('/signin')}>Proceed To Checkout</button>
                 </div>
             </div>

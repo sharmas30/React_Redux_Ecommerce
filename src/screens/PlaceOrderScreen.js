@@ -28,7 +28,7 @@ const PlaceOrderScreen = () => {
             document.location.hash = '/payment';
         }
 
-        const totalItemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
+        const totalItemsPrice = orderItems.reduce((a, c) => a + c.productPrice * c.qty, 0);
         const shippingPrice = totalItemsPrice > 500 ? 0 : 50;
         const taxPrice = Math.trunc(Math.round(0.02 * totalItemsPrice * 100) / 100);
         const totalPrice = totalItemsPrice + shippingPrice + taxPrice;
@@ -151,15 +151,15 @@ const PlaceOrderScreen = () => {
 
                             <tr className='table_row_3'>
                                 <td className='cartImage'>
-                                    <img src= {item.image} alt={item.name}/> 
+                                    <img src= {item.Productimage} alt={item.productName}/> 
                                 </td>
                                 <td className='shoppingCartDetails'>
-                                    <h4>{item.name}</h4>
+                                    <h4>{item.productName}</h4>
                                     <span> Qty : {item.qty} </span>     
                                 </td>
 
                                 <td className='shippingcartProductPrice'>
-                                    Rs. {item.price}
+                                    Rs. {item.productPrice}
                                 </td>
                             </tr>
                             </>

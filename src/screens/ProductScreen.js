@@ -8,12 +8,27 @@ import { getCartItems, getProductScreenItem, setCartItems } from '../localStorag
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router';
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import Zoom from 'react-img-zoom';
+
+var selectedImage = null;
 
 const ProductScreen = () => {    
     const product = getProductScreenItem();
     const history = useHistory();
-    const [showImg, setImage] = useState(product.image);
+    const [showImg, setImage] = useState(product.Productimage);
     const [size, setSize] = useState('')
+    const [imageState1, setImageState1] = useState(false)
+    const [imageState2, setImageState2] = useState(false)
+    const [imageState3, setImageState3] = useState(false)
+
+    const [imageView1, setImageView1] = useState(product.ProductSampleImage[0])
+    const [imageView2, setImageView2] = useState(product.ProductSampleImage[1])
+    const [imageView3, setImageView3] = useState(product.ProductSampleImage[2])
+
+    const [parentImage, setParentImage] = useState(showImg)
+
     const [alertState, setAlertState] = useState({
         type: 'warning',
         status: false,
@@ -21,7 +36,25 @@ const ProductScreen = () => {
         quote: "Something went wrong. Please try again!",
         })
 
-    console.log('SIZE', size);
+    console.log('SIZEEEEEEEEEEE', product);
+
+    const func1 = () => {
+        setImageView1(parentImage)
+        setImage(imageView1);
+    }
+    const func2 = () => {
+        setImageView2(parentImage)
+        setImage(imageView2);
+    }
+    const func3 = () => {
+        setImageView3(parentImage)
+        setImage(imageView3);
+    }
+
+    useEffect(() => {
+        setParentImage(showImg)
+    },[showImg]);
+
     if(!product){
         return <div> Product Not Found </div>
     }
@@ -42,7 +75,7 @@ const ProductScreen = () => {
         else{
             let cartItems = getCartItems()
 
-            const existItem = cartItems.find((x) => x._id === item._id );
+            const existItem = cartItems.find((x) => x.productId === item.productId );
 
             if(existItem){
                 setAlertState({
@@ -75,36 +108,43 @@ const ProductScreen = () => {
             <ToastContainer />      
             <div className="productCard">
                 <div className='productImage'>
-                    <img src= {showImg} /> 
+                {/* <Zoom
+                    img={ showImg }
+                    zoomScale={2}
+                    width={400}
+                    height={500}
+                    transitionTime={0.5}
+                /> */}
+                    <img src= { showImg }  /> 
                 </div>
 
                 <div className='productImageSample'>
                     <div>
-                        <img src= {product.image} onClick={()=>setImage(product.image)} />                         
+                        <img src= { imageView1 } onClick={func1} />                         
                     </div>
                     <div>
-                        <img src= {product.image} onClick={()=>setImage(product.image)} />                         
+                        <img src= { imageView2 } onClick={func2} />                         
                     </div>
                     <div>
-                        <img src= {product.image} onClick={()=>setImage(product.image)} />                     
+                        <img src= { imageView3 } onClick={func3} />                     
                     </div>
                 </div>
 
                 <div className='productCalculation'>
                     <div className='productName'>
-                        <span>{product.name}</span>
+                        <span>{product.productName}</span>
                     </div>
                    
                     <div className='productBrand'>
-                      <span>{product.brand}</span>
+                      <span>{product.productBrand}</span>
                     </div>
                    
                     <div className='productPrice'>
-                       <span>Rs. {product.price}</span>
+                       <span>Rs. {product.productPrice}</span>
                     </div>
                    
                     <div className='productStock'>
-                       <span>Stock : {`${product.countInStock}` > 0 ? <span className='productInStock'> In Stock</span> : <span className='productOutStock'>Out Of Stock </span>} </span>
+                       <span>Stock : {`${product.ProductCount}` > 0 ? <span className='productInStock'> In Stock</span> : <span className='productOutStock'>Out Of Stock </span>} </span>
                     </div>
                    
                     <div className='productSize'>
@@ -113,7 +153,7 @@ const ProductScreen = () => {
                     </div>
 
                     <div className='productAddCartBtn'>
-                        {`${product.countInStock}`> 0 ? <button onClick={()=>addToCart({...product, size, qty: 1})}>Add To Cart</button> : ''}
+                        {`${product.ProductCount}`> 0 ? <button onClick={()=>addToCart({...product, size, qty: 1})}>Add To Cart</button> : ''}
                     </div>
                 </div>
             </div>

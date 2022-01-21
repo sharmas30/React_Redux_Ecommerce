@@ -17,7 +17,7 @@ var prgs = null;
 var imageURL;
 
 const ProductEditScreen = () => {
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState({});
     const [productDetails, setProductDetails] = useState({
         productName: '',
         productBrand: '',

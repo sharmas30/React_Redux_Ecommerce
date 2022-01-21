@@ -122,15 +122,15 @@ const OrderScreen = () => {
 
                             <tr className='table_row_3'>
                                 <td className='cartImage'>
-                                    <img src= {item.image} alt={item.name}/> 
+                                    <img src= {item.Productimage} alt={item.productName}/> 
                                 </td>
                                 <td className='shoppingCartDetails'>
-                                    <h4>{item.name}</h4>
+                                    <h4>{item.productName}</h4>
                                     <span> Qty : {item.qty} </span>     
                                 </td>
 
                                 <td className='shippingcartProductPrice'>
-                                    Rs. {item.price}
+                                    Rs. {item.productPrice}
                                 </td>
                             </tr>
                             </>
