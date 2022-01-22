@@ -72,10 +72,13 @@ const PlaceOrderScreen = () => {
 
         toast.success("Order Placed Successfully...!",
         {position: toast.POSITION.TOP_CENTER});
-
+        
         cleanCart();
+        setTimeout(() => {
+            console.log("PPPPP")
+            history.push(`/order/${order_id}`);
+        }, 2700);
 
-        history.push(`/order/${order_id}`);
     }
 
     const {

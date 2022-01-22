@@ -11,6 +11,8 @@ import { useHistory } from 'react-router';
 import { useEffect } from 'react';
 import { useRef } from 'react';
 import Zoom from 'react-img-zoom';
+import Loader from '../components/Loader';
+import LoaderProductScreen from '../components/LoaderProductScreen';
 
 var selectedImage = null;
 
@@ -29,14 +31,14 @@ const ProductScreen = () => {
 
     const [parentImage, setParentImage] = useState(showImg)
 
+    const [loadingState, setLoadingState] = useState(true);
+
     const [alertState, setAlertState] = useState({
         type: 'warning',
         status: false,
         title: "Please Select Size",
         quote: "Something went wrong. Please try again!",
         })
-
-    console.log('SIZEEEEEEEEEEE', product);
 
     const func1 = () => {
         setImageView1(parentImage)
@@ -54,6 +56,10 @@ const ProductScreen = () => {
     useEffect(() => {
         setParentImage(showImg)
     },[showImg]);
+
+    setTimeout(() => {
+        setLoadingState(false);
+    }, 1500);
 
     if(!product){
         return <div> Product Not Found </div>
@@ -118,10 +124,14 @@ const ProductScreen = () => {
                     <img src= { showImg }  /> 
                 </div>
 
+            
                 <div className='productImageSample'>
                     <div>
                         <img src= { imageView1 } onClick={func1} />                         
                     </div>
+                    {
+                        loadingState ? <LoaderProductScreen />: ''
+                    }
                     <div>
                         <img src= { imageView2 } onClick={func2} />                         
                     </div>

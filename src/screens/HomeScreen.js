@@ -8,6 +8,7 @@ import { getDatabase, ref, set, onValue, update } from "firebase/database";
 import {ref as sRef, getStorage, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import Loader from '../components/Loader';
 import { setCartItems, setProductScreenItem } from '../localStorage';
+import LoaderHomeScreen from '../components/LoaderHomeScreen';
 
 const HomeScreen = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,8 @@ const HomeScreen = () => {
     const {loading, products, error } = productList
 
     const [allProductData, setAllProductData] = useState([])
+
+    const [loadindState, setLoadindState] = useState(true)
 
     useEffect(()=>{
         dispatch(listProducts())
@@ -26,6 +29,7 @@ const HomeScreen = () => {
             const allProducts = Object.values(data);
             setAllProductData(allProducts);
             console.log("DDDDDDD_____", allProducts);
+            setLoadindState(false);                
         })
     }, [])
 
@@ -35,7 +39,7 @@ const HomeScreen = () => {
 
     return (
         <>
-       { loading ? <Loader /> :
+       { loadindState ? <LoaderHomeScreen /> :
             <div className='cards cardContent'>
                 {
                     allProductData.map((product)=>{

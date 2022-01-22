@@ -50,6 +50,7 @@
 .shippingformDetails textarea{
     border-radius: 7px;
     border: 1.5px solid black;
+    padding: 3px;
 }
 
 .shippingformDetails li button {
@@ -62,7 +63,6 @@
     border: 0px;
     text-shadow: 1px 1px 1px rgb(158, 153, 153);
     box-shadow: 2px 3px 3px 2px rgb(163, 159, 159);
-
 }
 
 .shippingContinue i{

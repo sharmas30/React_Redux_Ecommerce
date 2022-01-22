@@ -33,49 +33,49 @@ const ContactScreen = () => {
             <div className="footer">
                 <div className="col-lg-4 col-md-4 col-12 ">
                     <div className="text-center footer-bg">
-                        <i className="fa fa-map-marker-alt" style={{fontSize:"25px",color:"rgb(22 22 23 / 93%)"}}></i><br />
+                        <i className="fa fa-map-marker-alt" style={{fontSize:"25px",color:"white"}}></i><br />
                         <div className="footer-div">
                             <p>Address</p>
                             <p>Laxmi Nagar, Chandmari</p>
                             <span>Khamgaon, 444 303 </span>
                         </div>
-                        <hr className="visible-xs" style={{border: "1px solid rgb(22 22 23 / 93%)", width: "180px"}} />
+                        <hr className="visible-xs" style={{border: "1px solid gray", width: "180px"}} />
                     </div>
                 </div>
 
                 <div className="col-lg-4 col-md-4 col-12 ">
                     <div className="text-center footer-bg">
-                        <i className="fa fa-envelope footer-icon" style={{fontSize:"25px", color:"rgb(22 22 23 / 93%)",fontWeight:"250"}}></i><br />
+                        <i className="fa fa-envelope footer-icon" style={{fontSize:"25px", color:"white",fontWeight:"250"}}></i><br />
                         <div className="footer-div">
                             <p className="contact-txt">General Enquiries</p>
                             <span>shubhsharmass24@gmail.com</span>
                         </div>
-                        <hr className="visible-xs text-center" style={{border: "1px solid rgb(22 22 23 / 93%)", width: "180px"}} />
+                        <hr className="visible-xs text-center" style={{border: "1px solid gray", width: "180px"}} />
                     </div>
                 </div>
 
                 <div className="col-lg-4 col-md-4 col-12">
                     <div className="text-center footer-bg">
-                        <i className="fa fa-phone" style={{fontSize:"25px", color:"rgb(22 22 23 / 93%)"}}></i><br />
+                        <i className="fa fa-phone" style={{fontSize:"25px", color:"white"}}></i><br />
                         <div className="footer-div">
                             <p>Call Us</p>
                             <p>+91-8983222814</p>
                             <span>+91-8983222814</span><br />
                         </div>
-                        <hr className="visible-xs" style={{border: "1px solid rgb(22 22 23 / 93%)", width: "180px"}} />
+                        <hr className="visible-xs" style={{border: "1px solid gray", width: "180px"}} />
                     </div>
                 </div>
 
                 <div className="col-lg-12 col-md-12 col-12">
                     <div className="text-center footer-bg">
-                        <i className="fa fa-clock-o" style={{fontSize:"25px", color:"rgb(22 22 23 / 93%)"}}></i><br />
+                        <i className="fa fa-clock-o" style={{fontSize:"25px", color:"white"}}></i><br />
                         <div className="footer-div">
                             <p>Hours : </p>
                             <p> Mon-Fri : 11.00am - 7.00pm</p>
                             <p> Sat : 11.00am - 2.00pm</p>
                             <span>Sunday Closed</span>
                         </div>
-                        <hr className="visible-xs" style={{border: "1px solid rgb(22 22 23 / 93%)", width: "180px"}} />
+                        <hr className="visible-xs" style={{border: "1px solid gray", width: "180px"}} />
                     </div>
                 </div>
             </div>

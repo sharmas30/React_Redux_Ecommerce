@@ -12,12 +12,15 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Loader from '../components/Loader';
 
+var flag = true;
+
 const OrderScreen = () => {
 
     const [receiveOrder, setReceiveOrder] = useState({})
     const [loadingState, setLoadingState] = useState(true);
     const history = useHistory();
     const param = useParams()
+    const { isAdmin } = getUserInfo();
 
     const db = getDatabase();
     debugger
@@ -26,17 +29,11 @@ const OrderScreen = () => {
         onValue(userRef, (snapshot) => {
             var data = snapshot.val();
             setReceiveOrder(data);
-            setLoadingState(false);
-            placeOrderNotification()
+            setTimeout(() => {
+                setLoadingState(false);                
+            }, 800);
         })
     },[])
-
-    const placeOrderNotification = () =>{
-        if(!isAdmin) {
-            toast.success("Order Placed Successfully...!",
-            {position: toast.POSITION.TOP_CENTER})
-        }
-    }
 
     const deliverOrder = (orderId) => {
         var d = new Date();
@@ -47,21 +44,21 @@ const OrderScreen = () => {
         })
     }
 
-    const { isAdmin } = getUserInfo();
-
     console.log('GGGGGG___', receiveOrder);
 
     return (
         <>
-        <div className="container content">
+        <ToastContainer />      
+        <div className="container content orderLoadingText">
+        {loadingState ?<h3 className='loadingText'>Loading... </h3> : ''}
         {
             loadingState ? <Loader />: 
             <>
+
                 <div className='orderSummery'>
                     <h2>Your Order</h2>
                 </div> 
                 <div className='row previewOrder'>
-                <ToastContainer />      
                 <div className='col-lg-8 col-12 order'>
                     <span className='orderId'> Order Id : {receiveOrder.order_id}</span>
                     <div className="customer_info">

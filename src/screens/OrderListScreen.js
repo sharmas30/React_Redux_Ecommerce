@@ -18,7 +18,7 @@ const OrderListScreen = () => {
     const [productDeleteAlert, setProductDeleteAlert] = useState({
         type: 'warning',
         status: false,
-        title: "Please Select Size",
+        title: "Please Select Order",
         quote: "Something went wrong. Please try again!",
     })
 
@@ -29,6 +29,7 @@ const OrderListScreen = () => {
             const data = snapshot.val();
             const allOrderData = Object.values(data);
             setOrders(allOrderData.reverse());
+            console.log("WWWWWW_____", allOrderData);
             setLoadingState(false);
         })
     },[])

@@ -7,7 +7,7 @@
 }
 
 .spinner {
-  position: absolute;
+  position: fixed;
   margin: 10px auto;
   box-sizing: border-box;
   background-clip: padding-box;

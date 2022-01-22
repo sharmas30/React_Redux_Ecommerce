@@ -128,7 +128,7 @@
 .rowPart1 img{
     width: 330px;
     height: 230px;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 .part1Header{
@@ -315,6 +315,7 @@
     width: 300px;
     height: 360px;
     margin: 14px auto;
+    border-radius: 3px;
 }
 
 .part3row .btn{
@@ -561,7 +562,7 @@
     .rowPart1 img{
         width: 300px;
         height: 230px;
-        border-radius: 2px;
+        border-radius: 3px;
         /* box-shadow: 1px 1px 1px 1px black; */
     }
 
