@@ -96,7 +96,7 @@ const MainPageScreen = () => {
                     </div>
                     
                     <div className='row rowPart1' onClick={
-                        ()=>{history.push('/home'); window.scrollTo(0, 0)}                    
+                        ()=>{history.push('/home/c1'); window.scrollTo(0, 0)}                    
                         }>
                         <div className='col-lg-4 col-12 image1 container'>
                             <img src="/images/mainPage_part1/image_6.jpg" />
@@ -131,36 +131,46 @@ const MainPageScreen = () => {
             </div>
 
             <div>
-                <div className="container content" onClick={
-                    ()=>{history.push('/home'); window.scrollTo(0, 0)}                    
-                    }>                  
+                <div className="container content" >                  
                     <div className='row part3div part3row'>
-                        <div className='col-lg-4 col-6 part3_image1'>
+                        <div className='col-lg-4 col-6 part3_image1' onClick={
+                            ()=>{history.push('/home/c3'); window.scrollTo(0, 0)}                    
+                            }>
                             <img src="/images/mainPage_part3/image_4.jpg" /> 
                             <button className='btn'>Party were</button>
                         </div>
 
-                        <div className='col-lg-4 col-6 part3_image1'>
+                        <div className='col-lg-4 col-6 part3_image1' onClick={
+                            ()=>{history.push('/home/c1'); window.scrollTo(0, 0)}                    
+                            }>
                             <img src="/images/mainPage_part3/image_2.jpg" /> 
                             <button className='btn'>Leather Jacket</button>
                         </div>
 
-                        <div className='col-lg-4 col-6'>
+                        <div className='col-lg-4 col-6' onClick={
+                            ()=>{history.push('/home/c3'); window.scrollTo(0, 0)}                    
+                            }>
                             <img src="/images/mainPage_part3/image_6.jpg" /> 
                             <button className='btn'>One Peace</button>
                         </div>
 
-                        <div className='col-lg-4 col-6'>
+                        <div className='col-lg-4 col-6'onClick={
+                            ()=>{history.push('/home/c1'); window.scrollTo(0, 0)}                    
+                            }>
                             <img src="/images/mainPage_part3/image_7.jpg" /> 
                             <button className='btn'>Fancy Gown</button>
                         </div>
 
-                        <div className='col-lg-4 col-6'>
+                        <div className='col-lg-4 col-6' onClick={
+                            ()=>{history.push('/home/c2'); window.scrollTo(0, 0)}                    
+                            }>
                             <img src="/images/mainPage_part3/image_5.jpg" /> 
                             <button className='btn'>Womens Plazo</button>
                         </div>
 
-                        <div className='col-lg-4 col-6'>
+                        <div className='col-lg-4 col-6'onClick={
+                            ()=>{history.push('/home/c1'); window.scrollTo(0, 0)}                    
+                            }>
                             <img src="/images/mainPage_part3/image_9.jpg" /> 
                             <button className='btn'>Night Gown</button>
                         </div>

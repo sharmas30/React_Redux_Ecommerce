@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getUserInfo } from '../localStorage';
 import { useHistory } from 'react-router-dom';
+import LoaderComponent from './LoaderComponent';
 
 var files_1 = [];
 var files_2 = [];
@@ -37,7 +38,7 @@ const SampleImageModal = forwardRef((props, ref) => {
         files_1 = e.target.files;
         if(e.target.files[0]) {
             const objURL = URL.createObjectURL(files_1[0])
-            console.log("URLL__1 ", objURL);
+            console.log("URLL__1234 ", objURL);
             setImage_1(URL.createObjectURL(files_1[0]));
         }
     }
@@ -196,7 +197,7 @@ const SampleImageModal = forwardRef((props, ref) => {
                     <i className="fa fa-close" onClick={ ()=>props.handleClose(false) } ></i>
                 </div>
                 <h2>
-                    Welcome to shubh World
+                    Please Upload Sample Image
                 </h2>
 
                 <div className='sampleImage'>

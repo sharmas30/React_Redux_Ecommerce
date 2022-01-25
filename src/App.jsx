@@ -45,7 +45,7 @@ function App() {
                 <main className='mainContent'>
                     <Switch>
                         <Route path= '/' component = {MainPageScreen} exact></Route>
-                        <Route path= '/home' component = {HomeScreen} exact></Route>
+                        <Route path= '/home/:id' component = {HomeScreen} exact></Route>
                         <Route path= '/product/:id' component={ProductScreen} ></Route>
                         <Route path= '/cart' component={cartScreen} ></Route>
                         <Route path= '/signin' component={SigninScreen} ></Route>

@@ -14,6 +14,8 @@ import { getUserInfo } from '../localStorage';
 const ProductListScreen = () => {
 
     const [allProduct, setAllProduct] = useState([])
+    const [allProductCatg2, setAllProductCatg2] = useState([])
+    const [allProductCatg3, setAllProductCatg3] = useState([])
     const [deleteLoader, setDeleteLoader] = useState(false)
     const history = useHistory();
 
@@ -29,12 +31,30 @@ const ProductListScreen = () => {
 
     useEffect(()=>{
         var allProductData = null;
+        var allProductCatg_2 = null;
+        var allProductCatg_3 = null;
         var userRef = ref(db, 'allProducts/');
         onValue(userRef, (snapshot) => {
             var data = snapshot.val();
             allProductData = data ? allProductData = Object.values(data) : [] 
-            console.log("GET Products__222 ", allProductData);
+            console.log("GET Products__111 ", allProductData);
             setAllProduct(allProductData);
+        })
+
+        var userRefC2 = ref(db, 'allProductsCategory_2/');
+        onValue(userRefC2, (snapshot) => {
+            var catg2Data = snapshot.val();
+            allProductCatg_2 = catg2Data ? allProductCatg_2 = Object.values(catg2Data) : [] 
+            console.log("GET Products__222 ", allProductCatg_2);
+            setAllProductCatg2(allProductCatg_2);
+        })
+
+        var userRefC3 = ref(db, 'allProductsCategory_3/');
+        onValue(userRefC3, (snapshot) => {
+            var catg3Data = snapshot.val();
+            allProductCatg_3 = catg3Data ? allProductCatg_3 = Object.values(catg3Data) : [] 
+            console.log("GET Products__333 ", allProductCatg_3);
+            setAllProductCatg3(allProductCatg_3);
         })
     },[])
 
@@ -160,6 +180,66 @@ const ProductListScreen = () => {
                                                     </tr>
                                                 </>
                                             : allProduct.map((product, index) =>{
+                                                return(
+                                                    <>
+                                                        <tr key={index}>
+                                                            <td>{index + 1}</td>
+                                                            <td>{product.productId}</td>
+                                                            <td>{product.productName}</td>
+                                                            <td>{product.productPrice}</td>
+                                                            <td>{product.productCategory}</td>
+                                                            <td>{product.productBrand}</td>
+                                                            <td className='adminProduct'>
+                                                                <button className="editButton" onClick={()=>history.push(`/productedit/${product.productId}`)}>Edit</button>
+                                                                <button className="deleteButton" onClick={()=>deleteProduct(product.productId)}>Delete</button>
+                                                            </td>
+                                                        </tr>
+                                                    </>
+                                                )
+                                            })
+                                        }
+
+                                        {
+                                            allProductCatg2.length === 0 
+                                            ?   <>
+                                                    <tr><td colSpan="7"> No Product Found</td></tr>
+                                                    <tr> 
+                                                        <td colSpan="7" className="productListLoader">
+                                                            <h2>Please wait... loading all products for Category 2...</h2>
+                                                        </td>
+                                                    </tr>
+                                                </>
+                                            : allProductCatg2.map((product, index) =>{
+                                                return(
+                                                    <>
+                                                        <tr key={index}>
+                                                            <td>{index + 1}</td>
+                                                            <td>{product.productId}</td>
+                                                            <td>{product.productName}</td>
+                                                            <td>{product.productPrice}</td>
+                                                            <td>{product.productCategory}</td>
+                                                            <td>{product.productBrand}</td>
+                                                            <td className='adminProduct'>
+                                                                <button className="editButton" onClick={()=>history.push(`/productedit/${product.productId}`)}>Edit</button>
+                                                                <button className="deleteButton" onClick={()=>deleteProduct(product.productId)}>Delete</button>
+                                                            </td>
+                                                        </tr>
+                                                    </>
+                                                )
+                                            })
+                                        }
+
+{
+                                            allProductCatg3.length === 0 
+                                            ?   <>
+                                                    <tr><td colSpan="7"> No Product Found</td></tr>
+                                                    <tr> 
+                                                        <td colSpan="7" className="productListLoader">
+                                                            <h2>Please wait... loading all products for Category 3...</h2>
+                                                        </td>
+                                                    </tr>
+                                                </>
+                                            : allProductCatg3.map((product, index) =>{
                                                 return(
                                                     <>
                                                         <tr key={index}>

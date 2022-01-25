@@ -1,5 +1,5 @@
 import { useEffect, useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import '../css/HomeScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts, selectedProducts } from '../actions/productActions.js';
@@ -17,13 +17,26 @@ const HomeScreen = () => {
 
     const [allProductData, setAllProductData] = useState([])
 
+    const param = useParams()
+
     const [loadindState, setLoadindState] = useState(true)
 
     useEffect(()=>{
+        var userRef
         dispatch(listProducts())
 
         const db = getDatabase();
-        var userRef = ref(db, `allProducts`);
+        if(param.id == "c1"){
+            userRef = ref(db, `allProducts`);
+        }
+
+        else if(param.id == "c2"){
+            userRef = ref(db, `allProductsCategory_2`);
+        }
+
+        else if(param.id == "c3"){
+            userRef = ref(db, `allProductsCategory_3`);
+        }
         onValue(userRef, (snapshot) => {
             var data = snapshot.val();
             const allProducts = Object.values(data);

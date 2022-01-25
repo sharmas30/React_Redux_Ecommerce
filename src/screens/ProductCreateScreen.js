@@ -19,6 +19,7 @@ var imageURL;
 
 const ProductCreateScreen = () => {
     const [image, setImage] = useState(null);
+    const [parentImage, setParenttImage] = useState({});
     const [modalState, setModalState] = useState(false);
     const [productDetails, setProductDetails] = useState({
         productName: '',
@@ -45,6 +46,7 @@ const ProductCreateScreen = () => {
             console.log("URLL ", objURL);
             imgFile = files[0]
             setImage(URL.createObjectURL(files[0]));
+            setParenttImage(files[0]);
         } 
     }
 
@@ -89,7 +91,7 @@ const ProductCreateScreen = () => {
                         console.log(" downloadURL ", downloadURL);
 
                         const db = getDatabase();
-                        set(ref(db, 'allProducts/' + product_id), {
+                        set(ref(db, 'allProductsCategory_1/' + product_id), {
                             productId : product_id,
                             productName : productDetails.productName,
                             productBrand : productDetails.productBrand,
@@ -137,7 +139,7 @@ const ProductCreateScreen = () => {
                         <SampleImageModal 
                             show = {modalState}
                             handleClose = {closeModal} 
-                            parentImage = {files[0]}
+                            parentImage = {parentImage}
                             sampleImageDataFunction = {sampleImageDataFunction}
                             ref = {childCompRef}
                         />

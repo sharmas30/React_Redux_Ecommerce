@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserInfo } from '../localStorage';
 import { useHistory } from 'react-router-dom';
+import LoaderComponent from './LoaderComponent';
 
 var files = [];
 var imgFile;
@@ -18,6 +19,7 @@ var imageURL;
 
 const ProductEditScreen = () => {
     const [image, setImage] = useState({});
+    const [updateLoader, setUpdateLoader] = useState(false);
     const [productDetails, setProductDetails] = useState({
         productName: '',
         productBrand: '',
@@ -31,13 +33,43 @@ const ProductEditScreen = () => {
     const history = useHistory();
 
     useEffect(()=>{
+        var userRef
+        var userRefC2
+        var userRefC3
         const db = getDatabase();
         const storage = getStorage();
-        var userRef = ref(db, `allProducts/${param.id}`);
+        userRef = ref(db, `allProducts/${param.id}`);
+        userRefC2 = ref(db, `allProductsCategory_2/${param.id}`);
+        userRefC3 = ref(db, `allProductsCategory_3/${param.id}`);
+
         onValue(userRef, (snapshot) => {
             var data = snapshot.val();
-            setProductDetails(data);
-            setImage(data.Productimage)
+            console.log("TTTTt___4444",data )
+            if(data){
+                setProductDetails(data);
+                setImage(data.Productimage)
+                files = [];
+            }
+        })
+
+        onValue(userRefC2, (snapshot) => {
+            var dataC2 = snapshot.val();
+            console.log("TTTTt___5555", dataC2 )
+            if(dataC2){
+                setProductDetails(dataC2);
+                setImage(dataC2.Productimage)
+                files = [];
+            }
+        })
+
+        onValue(userRefC3, (snapshot) => {
+            var dataC3 = snapshot.val();
+            console.log("TTTTt___5555", dataC3 )
+            if(dataC3){
+                setProductDetails(dataC3);
+                setImage(dataC3.Productimage)
+                files = [];
+            }
         })
     },[])
 
@@ -46,65 +78,95 @@ const ProductEditScreen = () => {
         files = e.target.files;
         if(e.target.files[0]) {
             const objURL = URL.createObjectURL(files[0])
-            console.log("URLL ", objURL);
+            console.log("URLL__EDITTTT ", objURL);
             imgFile = files[0]
             setImage(URL.createObjectURL(files[0]));
+            console.log("URLL__EDITTTT_____222 ", files[0]);
         }
     } 
 
     const uploadPictureDetails = (e) => {
         e.preventDefault();
+        setUpdateLoader(true);
         if(image){
-            var d = new Date();
-            var n = d.toISOString();
-            var id = n.split(':')[0] + n.split(':')[1] + n.split(':')[2].slice(0, 6)
-            var product_id = id.replace(/-/g, '').replace('.', '').replace('T', '');
-            debugger
-            console.log("SS__1 ", product_id);
+            // var d = new Date();
+            // var n = d.toISOString();
+            // var id = n.split(':')[0] + n.split(':')[1] + n.split(':')[2].slice(0, 6)
+            // var product_id = id.replace(/-/g, '').replace('.', '').replace('T', '');
+            // debugger
+            // console.log("SS__1 ", product_id);
 
             const metadata = {
                 contentType: 'image/jpeg',
             };
 
+            if(files[0]){  
             const storage = getStorage();
             const storageRef = sRef(storage, 'images/' + productDetails.productId + ".png");
 
             const uploadTask = uploadBytesResumable(storageRef, files[0]);
             console.log("CCCCCC___ ", uploadTask);
+            console.log("TASKKKK___1 ", files[0]);
 
-            uploadTask.on(
-                "state_changed",
-                (snapshot) => {
-                    prgs = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    if(prgs <= 100){
-                        setProgress(prgs);
-                        setProgressState("Uploading...")
-                    }
-                },
-                (error)=>{
-                    toast.error("Please Upload Image Again",
-                    {position: toast.POSITION.TOP_CENTER});
-                },
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
-                        imageURL = downloadURL;
-                        console.log(" downloadURL ", downloadURL);
+                console.log('IFFFFFFF___');
+                uploadTask.on(
+                    "state_changed",
+                        (snapshot) => {
+                            prgs = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                            if(prgs <= 100){
+                                setProgress(prgs);
+                                setProgressState("Uploading...")
+                            }
+                        },
+                        (error)=>{
+                            toast.error("Please Upload Image Again",
+                            {position: toast.POSITION.TOP_CENTER});
+                        },
+                        () => {
+                            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
+                                imageURL = downloadURL;
+                                console.log(" downloadURL_BBB ", downloadURL);
 
-                        const db = getDatabase();
-                        update(ref(db, 'allProducts/' + productDetails.productId), {
-                            // productId: product_id,
-                            productName: productDetails.productName,
-                            productBrand: productDetails.productBrand,
-                            productCategory: productDetails.productCategory,
-                            productPrice: productDetails.productPrice,
-                            ProductCount : productDetails.ProductCount,
-                            Productimage: imageURL,
-                        })
-                        toast.success("Product Updated Successfully",
-                        {position: toast.POSITION.TOP_CENTER});
-                })},
-                
-            );
+                                const db = getDatabase();
+                                update(ref(db, 'allProducts/' + productDetails.productId), {
+                                    // productId: product_id,
+                                    productName: productDetails.productName,
+                                    productBrand: productDetails.productBrand,
+                                    productCategory: productDetails.productCategory,
+                                    productPrice: productDetails.productPrice,
+                                    ProductCount : productDetails.ProductCount,
+                                    Productimage: imageURL,
+                                })
+                                setUpdateLoader(false);
+                                toast.success("Product Updated Successfully",
+                                {position: toast.POSITION.TOP_CENTER});
+
+                                setTimeout(() => {
+                                    history.push(`/`);
+                                }, 2700);
+                            })},
+                );
+            }
+
+            else if(!files[0]){
+                console.log('ELSEEEEEE____');
+                const db = getDatabase();
+                update(ref(db, 'allProducts/' + productDetails.productId), {
+                    // productId: product_id,
+                    productName: productDetails.productName,
+                    productBrand: productDetails.productBrand,
+                    productCategory: productDetails.productCategory,
+                    productPrice: productDetails.productPrice,
+                    ProductCount : productDetails.ProductCount,
+                })
+                setUpdateLoader(false);
+                toast.success("Product Updated Successfully",
+                {position: toast.POSITION.TOP_CENTER});
+
+                setTimeout(() => {
+                    history.push(`/`);
+                }, 2700);
+            }
         }
         else{
             toast.error("Please Upload The Image",
@@ -122,6 +184,7 @@ const ProductEditScreen = () => {
                 <div className='col-lg-12 col-12 productCreateCard' >
                     <div className='productCreateDetails productCreateDetails_1'>
                         <form>
+                            { updateLoader ? <LoaderComponent /> : "" }
                             <ul className='productCreateformDetails'>
                                 <li>
                                     <h1>Update Product</h1>
@@ -131,7 +194,6 @@ const ProductEditScreen = () => {
                                     <label >Product Name</label>
                                     <input type='text' name='fname' value={productDetails.productName} onChange={(e)=> setProductDetails({...productDetails, productName: e.target.value})} required />
                                 </li>
-
 
                                 <li className='imageFile'>
                                     <img src={image}  />

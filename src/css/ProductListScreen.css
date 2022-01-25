@@ -82,6 +82,7 @@
     border-left: 0.5px solid;
     padding: 3px 5px;
     text-align: center;
+    flex-direction: row;
 }
 
 .productListBody td{
@@ -98,6 +99,10 @@
 
 .productListTable tbody>tr:nth-child(odd){
     background-color: #121731;
+}
+
+.adminProduct{
+    width: 130px;
 }
 
 .adminProduct button{
