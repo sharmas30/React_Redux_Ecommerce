@@ -15,15 +15,14 @@ import LoaderProductScreen from '../components/LoaderProductScreen';
 
 var selectedImage = null;
 
-var product = getProductScreenItem();
-
 const ProductScreen = () => {    
+    var product = getProductScreenItem();
     const history = useHistory();
-    const [showImg, setShowImg] = useState("");
+    const [showImg, setShowImg] = useState(product.Productimage);
     const [size, setSize] = useState('')
-    // const [imageState1, setImageState1] = useState(false)
-    // const [imageState2, setImageState2] = useState(false)
-    // const [imageState3, setImageState3] = useState(false)
+    const [imageState1, setImageState1] = useState(false)
+    const [imageState2, setImageState2] = useState(false)
+    const [imageState3, setImageState3] = useState(false)
     
     const [imageView1, setImageView1] = useState(product.ProductSampleImage[0])
     const [imageView2, setImageView2] = useState(product.ProductSampleImage[1])
@@ -39,11 +38,6 @@ const ProductScreen = () => {
         title: "Please Select Size",
         quote: "Something went wrong. Please try again!",
     })
-    
-    product = getProductScreenItem();
-    console.log("22222222",product.Productimage)
-    var mainImage = product.Productimage
-    console.log("3333333",product)
 
     const func1 = () => {
         setImageView1(parentImage)
@@ -61,10 +55,6 @@ const ProductScreen = () => {
     useEffect(() => {
         setParentImage(showImg)
     },[showImg]);
-
-    useEffect(()=>{
-        setShowImg(mainImage);
-    },[])
 
     setTimeout(() => {
         setLoadingState(false);
