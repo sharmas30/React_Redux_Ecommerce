@@ -5,8 +5,7 @@ import { getUserInfo } from '../localStorage';
 import "../css/Dashboard.css";
 import fire from '../config/fire';
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect, useState} from 'react';
 
 const DashboardScreen = () => {
     const history = useHistory();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useEffect, useState} from 'react';
 import ReactJsAlert from "reactjs-alert"; 
 import ProductSize from '../components/ProductSize';
 import '../css/ProductScreen.css';
@@ -8,7 +8,6 @@ import { getCartItems, getProductScreenItem, setCartItems } from '../localStorag
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router';
-import { useEffect } from 'react';
 import { useRef } from 'react';
 import Zoom from 'react-img-zoom';
 import Loader from '../components/Loader';
@@ -16,46 +15,56 @@ import LoaderProductScreen from '../components/LoaderProductScreen';
 
 var selectedImage = null;
 
-const ProductScreen = () => {    
-    const product = getProductScreenItem();
-    const history = useHistory();
-    const [showImg, setImage] = useState(product.Productimage);
-    const [size, setSize] = useState('')
-    const [imageState1, setImageState1] = useState(false)
-    const [imageState2, setImageState2] = useState(false)
-    const [imageState3, setImageState3] = useState(false)
+var product = getProductScreenItem();
 
+const ProductScreen = () => {    
+    const history = useHistory();
+    const [showImg, setShowImg] = useState("");
+    const [size, setSize] = useState('')
+    // const [imageState1, setImageState1] = useState(false)
+    // const [imageState2, setImageState2] = useState(false)
+    // const [imageState3, setImageState3] = useState(false)
+    
     const [imageView1, setImageView1] = useState(product.ProductSampleImage[0])
     const [imageView2, setImageView2] = useState(product.ProductSampleImage[1])
     const [imageView3, setImageView3] = useState(product.ProductSampleImage[2])
-
+    
     const [parentImage, setParentImage] = useState(showImg)
-
+    
     const [loadingState, setLoadingState] = useState(true);
-
+    
     const [alertState, setAlertState] = useState({
         type: 'warning',
         status: false,
         title: "Please Select Size",
         quote: "Something went wrong. Please try again!",
-        })
+    })
+    
+    product = getProductScreenItem();
+    console.log("22222222",product.Productimage)
+    var mainImage = product.Productimage
+    console.log("3333333",product)
 
     const func1 = () => {
         setImageView1(parentImage)
-        setImage(imageView1);
+        setShowImg(imageView1);
     }
     const func2 = () => {
         setImageView2(parentImage)
-        setImage(imageView2);
+        setShowImg(imageView2);
     }
     const func3 = () => {
         setImageView3(parentImage)
-        setImage(imageView3);
+        setShowImg(imageView3);
     }
 
     useEffect(() => {
         setParentImage(showImg)
     },[showImg]);
+
+    useEffect(()=>{
+        setShowImg(mainImage);
+    },[])
 
     setTimeout(() => {
         setLoadingState(false);
@@ -139,7 +148,6 @@ const ProductScreen = () => {
                         <img src= { imageView3 } onClick={func3} />                     
                     </div>
                 </div>
-
                 <div className='productCalculation'>
                     <div className='productName'>
                         <span>{product.productName}</span>

@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
+import React from 'react'
+import { useEffect, useState} from 'react';
 import { useHistory } from 'react-router';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom'
 import { getUserInfo } from '../localStorage';
 import Loader from '../components/Loader';
 import "../css/OrderListScreen.css";
 import fire from '../config/fire';
 import { getDatabase, ref, set, onValue, remove } from "firebase/database";
 import ReactJsAlert from "reactjs-alert"; 
-
 
 const OrderListScreen = () => {
     const history = useHistory();

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useState } from 'react/cjs/react.development'
+import { useEffect, useState} from 'react';
 import "../css/ProductCreateScreen.css"
 import fire from '../config/fire';
 import { getDatabase, ref, set, onValue } from "firebase/database";
@@ -56,8 +56,7 @@ const ProductCreateScreen = () => {
             setproductCreateLoader(true);
             var product_id = sampleImageData.imageId;
             var sampleImageURL = sampleImageData.arrayOfImage;
-            debugger
-
+           
             const metadata = {
                 contentType: 'image/jpeg',
             };
@@ -122,7 +121,6 @@ const ProductCreateScreen = () => {
     const sampleImageDataFunction = (data) => {
         console.log(data)
         setSampleImageData(data);
-        console.log("IIIIIIIIIUUUU", sampleImageData);
         setModalState(false)
         setSampleImageStatus(true)
     }

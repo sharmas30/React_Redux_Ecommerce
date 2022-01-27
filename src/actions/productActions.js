@@ -11,7 +11,6 @@ export const listProducts = () => async (dispatch) =>{
         const {products} = data
         const allData = products
         
-        console.log('action_1 ', allData)
         dispatch({type: myAction.PRODUCT_LIST_SUCCESS, payload: allData, isLoading: false})
 
     } catch (error) {

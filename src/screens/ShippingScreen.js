@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react/cjs/react.development'
+import { useEffect, useState} from 'react';
 import '../css/ShippingScreen.css'
 import { useHistory } from 'react-router';
 import { getShippingInfo, setShippingInfo } from '../localStorage';

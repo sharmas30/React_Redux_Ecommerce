@@ -32,7 +32,7 @@ function App() {
             <div className="App grid-container">
                 <header>
                     <div>
-                        <NavLink to="/">Sharmas</NavLink>
+                        <NavLink to="/">Tammas</NavLink>
                     </div>
                     <div className='cartIcon'>
                         <div className='cart_icon'>
@@ -46,22 +46,22 @@ function App() {
                     <Switch>
                         <Route path= '/' component = {MainPageScreen} exact></Route>
                         <Route path= '/home/:id' component = {HomeScreen} exact></Route>
-                        <Route path= '/product/:id' component={ProductScreen} ></Route>
-                        <Route path= '/cart' component={cartScreen} ></Route>
-                        <Route path= '/signin' component={SigninScreen} ></Route>
-                        <Route path= '/register' component={RegisterScreen} ></Route>
-                        <Route path= '/shipping' component={ShippingScreen} ></Route>
-                        <Route path= '/payment' component={PaymentScreen} ></Route>
-                        <Route path= '/placeorder' component={PlaceOrderScreen} ></Route>
-                        <Route path= '/productcreate' component={ProductCreateScreen} ></Route>
-                        <Route path= '/dashboard' component={DashboardScreen} ></Route>
-                        <Route path= '/orderlist' component={OrderListScreen} ></Route>
-                        <Route path= '/productlist' component={ProductListScreen} ></Route>
-                        <Route path= '/productedit/:id' component={ProductEditScreen} ></Route>
-                        <Route path= '/order/:id' component={OrderScreen} ></Route>
-                        <Route path= '/userprofile' component={UserProfileScreen} ></Route>
-                        <Route path= '/contact' component={ContactScreen} ></Route>
-                        <Route path= '/aboutus' component={AboutUsScreen} ></Route>
+                        <Route path= '/product/:id' component={ProductScreen} exact ></Route>
+                        <Route path= '/cart' component={cartScreen} exact ></Route>
+                        <Route path= '/signin' component={SigninScreen} exact></Route>
+                        <Route path= '/register' component={RegisterScreen} exact></Route>
+                        <Route path= '/shipping' component={ShippingScreen}exact ></Route>
+                        <Route path= '/payment' component={PaymentScreen} exact></Route>
+                        <Route path= '/placeorder' component={PlaceOrderScreen} exact></Route>
+                        <Route path= '/productcreate' component={ProductCreateScreen} exact></Route>
+                        <Route path= '/dashboard' component={DashboardScreen} exact></Route>
+                        <Route path= '/orderlist' component={OrderListScreen} exact></Route>
+                        <Route path= '/productlist' component={ProductListScreen} exact></Route>
+                        <Route path= '/productedit/:id' component={ProductEditScreen} exact></Route>
+                        <Route path= '/order/:id' component={OrderScreen} exact></Route>
+                        <Route path= '/userprofile' component={UserProfileScreen} exact></Route>
+                        <Route path= '/contact' component={ContactScreen} exact></Route>
+                        <Route path= '/aboutus' component={AboutUsScreen} exact></Route>
 
                     </Switch>
                 </main>

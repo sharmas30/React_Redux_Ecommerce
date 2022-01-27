@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/AboutUsScreen.css'
 import Typewriter from "typewriter-effect";
-import { useState } from 'react/cjs/react.development'
+import { useState} from 'react';
 
 const AboutUsScreen = () => {
 

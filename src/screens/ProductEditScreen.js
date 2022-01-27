@@ -1,12 +1,11 @@
 import React from 'react'
-import { useState } from 'react/cjs/react.development'
+import { useEffect, useState} from 'react';
 import "../css/ProductCreateScreen.css"
 import fire from '../config/fire';
 import { getDatabase, ref, set, onValue, update } from "firebase/database";
 import {ref as sRef, getStorage, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserInfo } from '../localStorage';
 import { useHistory } from 'react-router-dom';
@@ -89,13 +88,7 @@ const ProductEditScreen = () => {
         e.preventDefault();
         setUpdateLoader(true);
         if(image){
-            // var d = new Date();
-            // var n = d.toISOString();
-            // var id = n.split(':')[0] + n.split(':')[1] + n.split(':')[2].slice(0, 6)
-            // var product_id = id.replace(/-/g, '').replace('.', '').replace('T', '');
-            // debugger
-            // console.log("SS__1 ", product_id);
-
+    
             const metadata = {
                 contentType: 'image/jpeg',
             };

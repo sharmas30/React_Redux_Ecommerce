@@ -2,27 +2,30 @@ import React, { useState } from 'react'
 import '../css/ProductSize.css';
 
 const ProductSize = (props) => {
-    const size = ['S', 'M', 'L', 'XL', 'XXL', 'XXL']
+    debugger
     const [color, setColor] = useState('');
-    console.log('COLOR ', color);
+    const size = ['S', 'M', 'L', 'XL', 'XXL', 'XXL']
+    // console.log('COLOR ', color);
 
-    const selectSize = (size, id) => {
-        props.sizeFun(size);
+    const selectSize_ = (size_, id) => {
+        props.sizeFun(size_);
         setColor(id);
     }
 
     return (
-        <div className='productSizeOption'>
-            {
-                size.map((item, i)=>{
-                    return(
-                        <>
-                            <div className={'testSize ' + (color == (i+1) ? 'activeSize' : '')} key={i+1}  onClick={()=>selectSize(item, i+1)} ><span>{item}</span></div>                    
-                        </>
-                    )
-                })
-            }
-        </div>
+        <>
+            <div className='productSizeOption'>
+                {
+                    size.map((item, i)=>{
+                        return(
+                            <>
+                                <li key={i} className={'testSize ' + (color == (i+1) ? 'activeSize' : '')}  onClick={()=>selectSize_(item, i+1)} ><span>{item}</span></li>                    
+                            </>
+                        )
+                    })
+                }
+            </div>
+        </>
     )
 }
 

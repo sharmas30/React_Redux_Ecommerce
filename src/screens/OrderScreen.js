@@ -8,8 +8,7 @@ import fire from '../config/fire';
 import { getDatabase, ref, set, onValue, update } from "firebase/database";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import Loader from '../components/Loader';
 
 var flag = true;
@@ -23,7 +22,7 @@ const OrderScreen = () => {
     const { isAdmin } = getUserInfo();
 
     const db = getDatabase();
-    debugger
+    
     useEffect(()=>{
         var userRef = ref(db, `orders/${param.id}`);
         onValue(userRef, (snapshot) => {

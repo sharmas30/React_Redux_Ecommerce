@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react/cjs/react.development'
+import { useEffect, useState} from 'react';
 import '../css/RegisterScreen.css'
 import fire from '../config/fire';
 import {getAuth, createUserWithEmailAndPassword } from "firebase/auth"
