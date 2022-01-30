@@ -9,19 +9,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getCartItems, setUserInfo } from '../localStorage';
 import { useHistory } from 'react-router';
+import LoaderComponent from './LoaderComponent';
 
 const RegisterScreen = () => {
 
     const [userRegister, setuserRegister] = useState({})
+    const [registerLoader, setRegisterLoader] = useState(false)
     const history = useHistory();
 
     const createUser = () => {
+        setRegisterLoader(true);
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, userRegister.email, userRegister.password).then((userCredential)=>{
             console.log("FIREBASE_UID ", userCredential.user.uid);
             const uid = userCredential.user.uid;
             const db = getDatabase();
-            set(ref(db, 'users/' + uid), {...userRegister, isAdmin: false, userId: uid})
+            set(ref(db, 'users/' + uid), {...userRegister, isAdmin: false, userId: uid, passWord: userRegister.password})
 
             toast.success("User Added Successfully...!",
             {position: toast.POSITION.TOP_CENTER});
@@ -31,6 +34,7 @@ const RegisterScreen = () => {
                 const data = snapshot.val();
                 console.log("GET DATA_1 ", data);
                 setUserInfo(data);
+                setRegisterLoader(false);
                 redirectUser();
             })
 
@@ -55,6 +59,7 @@ const RegisterScreen = () => {
            <div className=' row contain'>
                 <div className='col-lg-12 col-12 registerCard' >
                     <div className='signInDetails registerDetails'>
+                        { registerLoader ? <LoaderComponent /> : "" }
                         <ul className='formDetails'>
                             <li>
                                 <h1>Register </h1>
